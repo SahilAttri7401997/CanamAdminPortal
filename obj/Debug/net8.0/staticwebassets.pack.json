@@ -1,0 +1,1729 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\Images\\logo.webp",
+      "PackagePath": "staticwebassets\\Images\\logo.webp"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\bootstrap-social.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-social.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\bootstrap-theme.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-theme.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\dataTables\\dataTables.bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\dataTables\\dataTables.bootstrap.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\dataTables\\dataTables.responsive.css",
+      "PackagePath": "staticwebassets\\css\\dataTables\\dataTables.responsive.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\metisMenu.min.css",
+      "PackagePath": "staticwebassets\\css\\metisMenu.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\morris.css",
+      "PackagePath": "staticwebassets\\css\\morris.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\startmin.css",
+      "PackagePath": "staticwebassets\\css\\startmin.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\timeline.css",
+      "PackagePath": "staticwebassets\\css\\timeline.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\glyphicons-halflings-regular.eot",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.eot"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\glyphicons-halflings-regular.svg",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.svg"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\glyphicons-halflings-regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.ttf"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\glyphicons-halflings-regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\glyphicons-halflings-regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\CHANGES.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\CHANGES.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\LICENSE.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\README.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\README.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\SECURITY.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\SECURITY.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\adapters\\jquery.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\adapters\\jquery.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\build-config.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\build-config.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\config.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\config.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\contents.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\contents.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\af.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\af.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ar.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\az.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\az.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\bg.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\bn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\bn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\bs.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\bs.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\cs.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\cy.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\da.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\da.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\de-ch.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\de.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\de.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\el.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\el.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\en-au.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\en-ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\en-ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\en-gb.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\en.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\en.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\eo.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\es-mx.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\es.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\es.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\et.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\et.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\eu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\fa.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\fi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\fo.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\fo.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\fr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\gl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\gu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\gu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\he.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\he.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\hi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\hi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\hr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\hu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\id.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\id.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\is.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\is.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\it.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\it.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ja.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ka.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ka.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\km.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\km.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ko.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ku.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\lt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\lv.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\mk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\mk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\mn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\mn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ms.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ms.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\nb.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\nl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\no.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\no.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\oc.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\pl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\pt-br.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\pt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ro.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ru.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\si.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\si.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\sk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\sl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\sq.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\sr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\sv.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\th.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\th.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\tr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\tt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\ug.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\uk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\vi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\lang\\zh.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\a11yhelp.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\a11yhelp.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\_translationstatus.txt",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\_translationstatus.txt"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\af.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\af.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ar.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\az.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\az.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\bg.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cs.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\cy.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\da.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\da.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de-ch.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\de.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\el.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\el.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-au.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en-gb.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\en.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eo.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es-mx.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\es.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\et.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\et.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\eu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fa.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fo.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fo.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\fr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\gu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\he.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\he.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\hu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\id.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\id.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\it.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\it.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ja.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\km.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\km.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ko.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ku.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\lv.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\mn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nb.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\nl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\no.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\no.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\oc.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt-br.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\pt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ro.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ru.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\si.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\si.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sq.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\sv.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\th.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\th.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\tt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\ug.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\uk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\vi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\a11yhelp\\dialogs\\lang\\zh.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\about\\dialogs\\about.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\about\\dialogs\\about.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\about\\dialogs\\hidpi\\logo_ckeditor.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\about\\dialogs\\hidpi\\logo_ckeditor.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\about\\dialogs\\logo_ckeditor.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\about\\dialogs\\logo_ckeditor.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\clipboard\\dialogs\\paste.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\clipboard\\dialogs\\paste.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\dialog\\dialogDefinition.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\dialog\\dialogDefinition.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\dialog\\styles\\dialog.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\dialog\\styles\\dialog.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\icons.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\icons.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\icons_hidpi.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\icons_hidpi.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\image\\dialogs\\image.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\image\\dialogs\\image.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\image\\images\\noimage.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\image\\images\\noimage.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\link\\dialogs\\anchor.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\link\\dialogs\\anchor.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\link\\dialogs\\link.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\link\\dialogs\\link.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\link\\images\\anchor.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\link\\images\\anchor.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\link\\images\\hidpi\\anchor.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\link\\images\\hidpi\\anchor.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon-rtl.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon-rtl.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\magicline\\images\\hidpi\\icon.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\magicline\\images\\icon-rtl.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\magicline\\images\\icon-rtl.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\magicline\\images\\icon.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\magicline\\images\\icon.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\pastefromgdocs\\filter\\default.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\pastefromgdocs\\filter\\default.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\pastefromlibreoffice\\filter\\default.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\pastefromlibreoffice\\filter\\default.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\pastefromword\\filter\\default.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\pastefromword\\filter\\default.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\pastetools\\filter\\common.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\pastetools\\filter\\common.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\pastetools\\filter\\image.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\pastetools\\filter\\image.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\CHANGELOG.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\CHANGELOG.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\LICENSE.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\README.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\README.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\dialogs\\dialog.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\dialogs\\dialog.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\dialogs\\options.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\dialogs\\options.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\dialogs\\toolbar.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\dialogs\\toolbar.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\scayt\\skins\\moono-lisa\\scayt.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\scayt\\skins\\moono-lisa\\scayt.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\_translationstatus.txt",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\_translationstatus.txt"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\af.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\af.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ar.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ar.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\az.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\az.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\bg.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\bg.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cs.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cs.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cy.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\cy.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\da.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\da.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de-ch.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de-ch.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\de.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\el.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\el.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-au.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-au.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-gb.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en-gb.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\en.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eo.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eo.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es-mx.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es-mx.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\es.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\et.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\et.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\eu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fa.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fa.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr-ca.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr-ca.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\fr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\gl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\gl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\he.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\he.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hu.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\hu.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\id.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\id.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\it.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\it.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ja.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ja.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\km.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\km.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ko.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ko.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ku.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ku.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lv.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\lv.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nb.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nb.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\nl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\no.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\no.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\oc.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\oc.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt-br.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt-br.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\pt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ro.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ro.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ru.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ru.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\si.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\si.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sl.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sl.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sq.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sq.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr-latn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr-latn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sv.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\sv.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\th.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\th.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tr.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tr.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tt.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\tt.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ug.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\ug.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\uk.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\uk.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\vi.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\vi.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh-cn.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\lang\\zh.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\specialchar\\dialogs\\specialchar.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\specialchar\\dialogs\\specialchar.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\table\\dialogs\\table.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\table\\dialogs\\table.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\tableselection\\styles\\tableselection.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\tableselection\\styles\\tableselection.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\tabletools\\dialogs\\tableCell.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\tabletools\\dialogs\\tableCell.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\plugins\\widget\\images\\handle.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\plugins\\widget\\images\\handle.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\css\\samples.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\css\\samples.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\img\\github-top.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\img\\github-top.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\img\\header-bg.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\img\\header-bg.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\img\\header-separator.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\img\\header-separator.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\img\\logo.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\img\\logo.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\img\\logo.svg",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\img\\logo.svg"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\img\\navigation-tip.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\img\\navigation-tip.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\index.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\index.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\js\\sample.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\js\\sample.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\js\\sf.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\js\\sf.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\ajax.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\ajax.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\api.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\api.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\appendto.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\appendto.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\assets\\inlineall\\logo.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\assets\\inlineall\\logo.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\assets\\outputxhtml\\outputxhtml.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\assets\\outputxhtml\\outputxhtml.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\assets\\posteddata.php",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\assets\\posteddata.php"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\assets\\sample.jpg",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\assets\\sample.jpg"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\assets\\uilanguages\\languages.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\assets\\uilanguages\\languages.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\datafiltering.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\datafiltering.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\dialog\\assets\\my_dialog.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\dialog\\assets\\my_dialog.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\dialog\\dialog.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\dialog\\dialog.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\divreplace.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\divreplace.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\enterkey\\enterkey.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\enterkey\\enterkey.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\htmlwriter\\outputhtml.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\htmlwriter\\outputhtml.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\index.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\index.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\inlineall.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\inlineall.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\inlinebycode.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\inlinebycode.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\inlinetextarea.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\inlinetextarea.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\jquery.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\jquery.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\magicline\\magicline.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\magicline\\magicline.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\readonly.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\readonly.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\replacebyclass.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\replacebyclass.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\replacebycode.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\replacebycode.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\sample.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\sample.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\sample.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\sample.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\sample_posteddata.php",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\sample_posteddata.php"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\tabindex.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\tabindex.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\toolbar\\toolbar.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\toolbar\\toolbar.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\uicolor.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\uicolor.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\uilanguages.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\uilanguages.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\wysiwygarea\\fullpage.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\wysiwygarea\\fullpage.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\old\\xhtmlstyle.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\old\\xhtmlstyle.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\css\\fontello.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\css\\fontello.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\config.json",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\config.json"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.eot",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.eot"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.svg",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.svg"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.ttf",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.ttf"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.woff",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\font\\fontello.woff"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\index.html",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\index.html"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\abstracttoolbarmodifier.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\abstracttoolbarmodifier.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\fulltoolbareditor.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\fulltoolbareditor.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbarmodifier.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbarmodifier.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbartextmodifier.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\js\\toolbartextmodifier.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\LICENSE",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\codemirror.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\javascript.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\javascript.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\neo.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\neo.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\samples\\toolbarconfigurator\\lib\\codemirror\\show-hint.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\dialog.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\dialog.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\dialog_ie.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\dialog_ie.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\dialog_ie8.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\dialog_ie8.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\dialog_iequirks.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\dialog_iequirks.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\editor.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\editor.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\editor_gecko.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\editor_gecko.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\editor_ie.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\editor_ie.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\editor_ie8.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\editor_ie8.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\editor_iequirks.css",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\editor_iequirks.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\icons.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\icons.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\icons_hidpi.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\icons_hidpi.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\arrow.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\arrow.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\close.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\close.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\close.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\close.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock-open.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock-open.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\lock.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\refresh.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\hidpi\\refresh.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\lock-open.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\lock-open.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\lock.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\lock.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\refresh.png",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\refresh.png"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\images\\spinner.gif",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\images\\spinner.gif"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\skins\\moono-lisa\\readme.md",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\skins\\moono-lisa\\readme.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\styles.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\styles.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\ckeditor\\vendor\\promise.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor\\vendor\\promise.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\dataTables\\dataTables.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\dataTables\\dataTables.bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\dataTables\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\js\\dataTables\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot-data.js",
+      "PackagePath": "staticwebassets\\js\\flot-data.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\excanvas.min.js",
+      "PackagePath": "staticwebassets\\js\\flot\\excanvas.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.colorhelpers.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.colorhelpers.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.canvas.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.canvas.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.categories.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.categories.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.crosshair.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.crosshair.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.errorbars.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.errorbars.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.fillbetween.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.fillbetween.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.image.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.image.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.navigate.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.navigate.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.pie.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.pie.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.resize.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.resize.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.selection.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.selection.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.stack.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.stack.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.symbol.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.symbol.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.threshold.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.threshold.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.time.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.time.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\flot\\jquery.flot.tooltip.min.js",
+      "PackagePath": "staticwebassets\\js\\flot\\jquery.flot.tooltip.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\metisMenu.min.js",
+      "PackagePath": "staticwebassets\\js\\metisMenu.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\morris-data.js",
+      "PackagePath": "staticwebassets\\js\\morris-data.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\morris.min.js",
+      "PackagePath": "staticwebassets\\js\\morris.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\multiple-select.js",
+      "PackagePath": "staticwebassets\\js\\multiple-select.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\raphael.min.js",
+      "PackagePath": "staticwebassets\\js\\raphael.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\startmin.js",
+      "PackagePath": "staticwebassets\\js\\startmin.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CanamDistributors.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CanamDistributors.props",
+      "PackagePath": "build\\CanamDistributors.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CanamDistributors.props",
+      "PackagePath": "buildMultiTargeting\\CanamDistributors.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CanamDistributors.props",
+      "PackagePath": "buildTransitive\\CanamDistributors.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
