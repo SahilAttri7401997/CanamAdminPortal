@@ -24,13 +24,12 @@
     <link href="~/css/timeline.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="~/css/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.2.6/css/froala_editor.pkgd.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/froala-editor@3.2.6/js/froala_editor.pkgd.min.js"></script>
+
 
     <style>
         .switch {
@@ -185,28 +184,22 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
     <script src="~/js/metisMenu.min.js"></script>
-    <!-- DataTables JavaScript -->
     <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
     <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
     <script src="~/js/startmin.js"></script>
-    <!-- jQuery (necessary for client-side validation) -->
-    <!-- jQuery Validation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script>
         $(document).ready(function () {
             new FroalaEditor('#ProoductConditions');
-
-             document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+            document.getElementById('uploadForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
                 var fileInput = document.getElementById('CategoryImage');
@@ -233,6 +226,10 @@
                     });
             });
         });
+
+
+      
+
     </script>
 
 

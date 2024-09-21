@@ -40,11 +40,11 @@ namespace CanamDistributors.Controllers
                     // Store admin details in session
                     HttpContext.Session.SetString("AdminName", admin.Name); // Adjust property names as needed
                     TempData["SuccessMessage"] = "Login successful!";
-                    string redirectURL = _quickBookService.InitiateAuthQuickBook();
-                    if (redirectURL != null)
-                    {
-                        return Redirect(redirectURL);
-                    }
+                    //string redirectURL = _quickBookService.InitiateAuthQuickBook();
+                    //if (redirectURL != null)
+                    //{
+                    //    return Redirect(redirectURL);
+                    //}
                     return RedirectToAction("DashBoard", "Account");
                 }
                 else
@@ -254,6 +254,10 @@ namespace CanamDistributors.Controllers
             var adminName = HttpContext.Session.GetString("AdminName");
             ViewBag.AdminName = adminName;
             var products = await _authService.GetProducts();
+            foreach (var item in products)
+            {
+                item.Active = "false";
+            }
             if (products == null)
             {
                 products = new List<Entity.Products> { new Entity.Products() };
