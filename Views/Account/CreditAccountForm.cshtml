@@ -1,0 +1,674 @@
+﻿@model CanamDistributors.Models.CreditAccountFormRequestModel
+@{
+    Layout = null;
+    ViewBag.Title = "Credit Account Form";
+    var successMessage = TempData["SuccessMessage"] as string;
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Credit Account Form</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .header {
+            background: #f8f9fa;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+            .header img {
+                max-height: 50px;
+            }
+
+        .container {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+            max-width: 960px;
+        }
+
+        .form-check {
+            margin-bottom: 1rem;
+        }
+
+        .form-check-input {
+            margin-top: 0.3rem;
+        }
+
+        .form-check-label {
+            display: inline;
+            margin-left: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .panel-heading {
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .panel-body {
+            padding: 15px;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Logo -->
+    <div class="header">
+        <img src="~/images/logo.webp" alt="Company Logo" />
+        <h1>Credit Account Form</h1>
+    </div>
+    <div class="container" id="wrapper">
+        @if (!string.IsNullOrEmpty(successMessage))
+        {
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                @successMessage
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                @errorMessage
+            </div>
+        }
+        @using (Html.BeginForm("SaveCustomer", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <!-- Request a Credit Account -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Request a Credit Account</strong>
+                        </div>
+                        <div class="panel-body">
+                            <p><strong>To obtain this privileged access, you must:</strong></p>
+                            <ul>
+                                <li>Fill out a credit application.</li>
+                                <li>Be a company working within the industry, for example a kitchen manufacturer or dealer.</li>
+                            </ul>
+                            <p>Please take note that Canam Distributors Inc has a dedicated site for architects and designers with a different access, and that all general public can purchase our products at various retailers and specialized companies.</p>
+                            <ul><li><strong>Mandatory fields</strong></li></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Info Section -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Business Info</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="legalName">*Legal Name of Business</label>
+                                            <input type="text" asp-for="LegalName" id="legalName" class="form-control" placeholder="e.g. Summer Collection" autofocus />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="tradeName">*Trade Name</label>
+                                            <input type="text" asp-for="TradeName" id="tradeName" class="form-control" placeholder="e.g. Summer Collection" autofocus />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="businessType">*Business Type</label>
+                                            <input type="text" asp-for="BusinessType" id="businessType" class="form-control" placeholder="e.g. Retail" autofocus />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="phoneNumber">*Phone Number</label>
+                                            <input type="text" asp-for="PhoneNumber" id="phoneNumber" class="form-control" placeholder="e.g. (123) 456-7890" autofocus />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="taxID">*Federal Tax ID</label>
+                                            <input type="text" asp-for="TaxID" id="taxID" class="form-control" placeholder="e.g. 12-3456789" autofocus />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="checkbox" asp-for="IsRegisteredBusiness" id="registeredBusiness" class="form-check-input" />
+                                                <label for="registeredBusiness" class="form-check-label">Check this box if your business is registered</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Tax Exemption Section -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Sales Tax Exemption</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group">
+                                    <p><strong>The applicant certifies that the goods ordered will be resold as taxable goods and declares having the following valid exemption tax certificate number:</strong></p>
+                                </div>
+                                <div class="row">
+                                   @*  <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fileUploader">Upload Exemption Tax Certificate</label>
+                                            <input type="file" asp-for="ExemptionTaxCertificate" name="ExemptionTaxCertificate" id="ExemptionTaxCertificate" />
+
+                                        </div>
+                                    </div> *@
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="pstNumber"><strong>PST Number</strong></label>
+                                            <input type="text" asp-for="PSTNumber" id="pstNumber" class="form-control" placeholder="PST-1234-5678" maxlength="11" title="Your PST number must be in the format PST-1234567 and exactly 11 characters long." required />
+                                        </div>
+                                        <p><strong>Your PST number is 11 characters long and should be in this format: <span style="color: yellow;">PST</span><span style="color: red;">-1234567</span>.</strong></p>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing Address Section -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Billing Address</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="address">*Address</label>
+                                            <input type="text" asp-for="BillingAddress" id="address" class="form-control" placeholder="123 Main St" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="address2">Address 2</label>
+                                            <input type="text" asp-for="BillingAddress2" id="address2" class="form-control" placeholder="Apt 4B" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="city">*City</label>
+                                            <input type="text" asp-for="BillingCity" id="city" class="form-control" placeholder="New York" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="state">*State</label>
+                                            <input type="text" asp-for="BillingState" id="state" class="form-control" placeholder="NY" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingCountry">*Country</label>
+                                            <input type="text" asp-for="BillingCountry" id="shippingCountry" class="form-control" placeholder="United States" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="zip">*ZIP Code</label>
+                                            <input type="text" asp-for="BillingZip" id="zip" class="form-control" placeholder="10001" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" id="copyBillingAddress" class="mr-2" />
+                                <label for="copyBillingAddress" class="mb-0">
+                                    <strong style="font-size:large"> Shipping Address</strong>
+                                    <small class="text-muted"> (Check this box to copy the billing address)</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <!-- First Row with Address, Address2, and City -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingAddress">*Address</label>
+                                            <input type="text" asp-for="ShippingAddress" id="shippingAddress" class="form-control" placeholder="123 Main St" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingAddress2">Address 2</label>
+                                            <input type="text" asp-for="ShippingAddress2" id="shippingAddress2" class="form-control" placeholder="Apt 4B" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingCity">*City</label>
+                                            <input type="text" asp-for="ShippingCity" id="shippingCity" class="form-control" placeholder="New York" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Second Row with State, Country, and Zipcode -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingState">*State</label>
+                                            <input type="text" asp-for="ShippingState" id="shippingState" class="form-control" placeholder="NY" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingCountry">*Country</label>
+                                            <input type="text" asp-for="ShippingCountry" id="shippingCountry" class="form-control" placeholder="United States" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="shippingZipcode">*Zipcode</label>
+                                            <input type="text" asp-for="ShippingZipcode" id="shippingZipcode" class="form-control" placeholder="10001" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Business Bank Information</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <!-- First Row with Bank Name, Contact Name, Address, Phone Number -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="bankName">*Bank Name</label>
+                                            <input type="text" asp-for="BankName" id="bankName" class="form-control" placeholder="e.g. Bank of America" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="contactName">*Contact Name</label>
+                                            <input type="text" asp-for="BankContactName" id="contactName" class="form-control" placeholder="e.g. John Doe" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="address">*Address</label>
+                                            <input type="text" asp-for="BankAddress" id="address" class="form-control" placeholder="e.g. 123 Bank St" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="phoneNumber">*Phone Number</label>
+                                            <input type="text" asp-for="BankPhoneNumber" id="phoneNumber" class="form-control" placeholder="e.g. (123) 456-7890" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Second Row with Transit No., Inst No., Account No. -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="transitNo">*Transit No.</label>
+                                            <input type="text" asp-for="TransitNo" id="transitNo" class="form-control" placeholder="Transit No." maxlength="5" />
+                                            <small class="form-text text-muted">Your Transit No. should be 5 digits long.</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="instNo">*Inst No.</label>
+                                            <input type="text" asp-for="InstNo" id="instNo" class="form-control" placeholder="Inst No." maxlength="3" />
+                                            <small class="form-text text-muted">Your Inst No. should be 3 digits long.</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="accountNo">*Account No.</label>
+                                            <input type="text" asp-for="AccountNo" id="accountNo" class="form-control" placeholder="Account No." maxlength="7" />
+                                            <small class="form-text text-muted">Your Account No. should be 7 digits long.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Major Suppliers</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset id="supplierSection">
+                                <!-- Static Supplier Entry -->
+                                <div class="supplier-entry static-entry">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierName1">*Supplier Name</label>
+                                                <input type="text" asp-for="SupplierName" id="supplierName1" class="form-control" placeholder="e.g. Supplier Co." required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierCity1">*City</label>
+                                                <input type="text" asp-for="SupplierCity" id="supplierCity1" class="form-control" placeholder="e.g. New York" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierPhone1">*Phone Number</label>
+                                                <input type="text" asp-for="SupplierPhone" id="supplierPhone1" class="form-control" placeholder="e.g. (123) 456-7890" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Placeholder for additional supplier entries -->
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Contact Information</strong>
+                            <div class="form-check" style="margin-top: 10px;">
+                                <input type="checkbox" asp-for="IsContactAuthorized" id="authorizationCheckbox" class="form-check-input" required />
+                                <label for="authorizationCheckbox" class="form-check-label">
+                                    I am an authorized offer and I have the authorization to submit account information on our company’s behalf and apply for credit.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="firstName">*First Name</label>
+                                            <input type="text" asp-for="FirstName" id="firstName" class="form-control" placeholder="e.g. John" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="lastName">*Last Name</label>
+                                            <input type="text" asp-for="LastName" id="lastName" class="form-control" placeholder="e.g. Doe" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="title">*Title</label>
+                                            <input type="text" asp-for="Title" id="title" class="form-control" placeholder="e.g. Manager" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="mobilePhone">*Mobile Phone</label>
+                                            <input type="text" asp-for="MobilePhone" id="mobilePhone" class="form-control" placeholder="e.g. (123) 456-7890" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="emailAddress">*Email Address</label>
+                                            <input type="email" asp-for="EmailAddress" id="emailAddress" class="form-control" placeholder="e.g. john.doe@example.com" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fax">Fax</label>
+                                            <input type="text" asp-for="Fax" id="fax" class="form-control" placeholder="e.g. (123) 456-7890" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">2-Factor Authentication</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="row">
+                                    <!-- Checkbox Column with Text Below -->
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input type="checkbox" asp-for="IsTwoFactorAuthEnabled" id="twoFactorAuth" class="form-check-input" />
+                                            <label for="twoFactorAuth" class="form-check-label d-block">
+                                                2-Factor Authentication
+                                            </label>
+                                            <p class="mt-2">For increased security of your access, we strongly recommend activating this service.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Mobile Number Input Column -->
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="mobileNumber">Mobile Number (format: (222) 333-4444)</label>
+                                            <input type="text" asp-for="MobileNumber" id="mobileNumber" class="form-control" placeholder="e.g. (123) 456-7890" title="Please enter the mobile number in the format: (222) 333-4444" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Account Statements and Invoices</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="IsAuthorizedToViewInvoices" id="authorizationCheckbox" class="form-check-input" required />
+                                    <label for="authorizationCheckbox" class="form-check-label">
+                                        I am authorized to view invoices and accounts payable for my company (subject to validation by my company's accounting department).
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Account on www.canamdistributors.com</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <!-- Password and Confirm Password Inputs in One Row -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password">*Password</label>
+                                            <input type="password" asp-for="Password" id="password" class="form-control" placeholder="Enter your password" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="confirmPassword">*Confirm Password</label>
+                                            <input type="password" asp-for="ConfirmPassword" id="confirmPassword" class="form-control" placeholder="Confirm your password" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Checkboxes -->
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="IsAuthorizedForPurchases" id="authorizationCheckbox" class="form-check-input" required />
+                                    <label for="authorizationCheckbox" class="form-check-label">
+                                        I have the authorization to make online purchases for the company.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="AgreesToTerms" id="termsCheckbox" class="form-check-input" required />
+                                    <label for="termsCheckbox" class="form-check-label">
+                                        I agree with the Terms and Conditions of Use of www.canamdistributors.com
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="ReceiveEmails" id="emailCheckbox1" class="form-check-input" />
+                                    <label for="emailCheckbox1" class="form-check-label">
+                                        I would like to receive emails about online specials, new products, and website features
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="Guarantee" id="guaranteeCheckbox" class="form-check-input" />
+                                    <label for="guaranteeCheckbox" class="form-check-label">
+                                        In consideration of Richelieu and its subsidiaries extending credit hereunder, the undersigned, jointly, severally,
+                                        and unconditionally, guarantees and promises to pay Richelieu on demand, any and all indebtedness of the
+                                        above-named applicant to Richelieu. All payments are payable in any of our other locations. This is a continuing
+                                        guarantee without expiration and the obligations created hereby are unaffected by any change in terms of the
+                                        original indebtedness between Richelieu and the below named applicant save that of payment. A photocopy or
+                                        fax copy shall be given the same effect as the original.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="AuthorizationForVerification" id="authorizationCheckbox2" class="form-check-input" />
+                                    <label for="authorizationCheckbox2" class="form-check-label">
+                                        I authorize Richelieu and its subsidiaries, to verify, validate and to inquire on my/our behalf with regards to this
+                                        Credit Application and to make whatever credit inquiries it deems necessary in connection with my/our
+                                        application for an open account and/or terms. I authorize and instruct any person of commercial and/or
+                                        consumer-reporting agency to compile and furnish any information it may have or obtain in response to such
+                                        credit inquiries. I also agree that this information will be reviewed periodically in order to maintain my/our credit
+                                        privileges. Richelieu and its subsidiaries may at any time at its own discretion maintain or cancel credit
+                                        privileges without notice.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="AccuracyConfirmation" id="accuracyCheckbox" class="form-check-input" />
+                                    <label for="accuracyCheckbox" class="form-check-label">
+                                        I confirm that I have read all the provisions of this account opening and credit application, including the general
+                                        conditions of sale of Canam Distributors Inc and the terms of the security and privacy policy of Canam
+                                        Distributors Inc, and certify that all information hereby submitted are accurate.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" asp-for="TermsAcknowledgement" id="termsCheckbox2" class="form-check-input" />
+                                    <label for="termsCheckbox2" class="form-check-label">
+                                        I, the undersigned, acknowledge and have read the contents of this document and I agree with the stipulated
+                                        Terms and Conditions.
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+
+</body>
+
+</html>

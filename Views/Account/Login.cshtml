@@ -1,0 +1,124 @@
+﻿@model CanamDistributors.Models.LogInViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Startmin - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa; /* Light background color for contrast */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .login-panel {
+            width: 100% !important;
+            max-width: 500px !important; /* Adjust as needed */
+            max-height: 500px !important;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px !important;
+            background-color: #fff !important; /* White background for the panel */
+        }
+
+            .login-panel .panel-title {
+                font-size: 24px !important;
+                text-align: center !important;
+                font-weight: 700 !important;
+            }
+
+            .login-panel .btn {
+                font-size: 16px !important;
+            }
+
+            .login-panel .form-group {
+                margin-bottom: 15px !important;
+            }
+
+            .login-panel .checkbox {
+                margin-bottom: 15px !important;
+            }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading" style="text-align:center">
+                <img src="~/images/logo.webp" alt="BootstrapBrain Logo" width="175" height="57">
+            </div>
+            <div class="panel-body">
+                <form asp-action="Login" method="post">
+                    @Html.AntiForgeryToken() <!-- CSRF protection -->
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="E-mail" name="email" type="email" asp-for="Email" autofocus>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="password" type="password" asp-for="Password" value="">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <!-- Change this to a button or input when using this as a form -->
+                        <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+
+</body>
+
+</html>
