@@ -10,6 +10,7 @@ namespace CanamDistributors.Interfaces
         Task<List<CategoryEntity>> GetCollections();
         string GenerateCsv(IEnumerable<Products> products);
         Task<CategoryEntity> SaveCollection(CollectionRequestModel requestModel);
-        Task<CreditAccountFormRequestModel> SaveCustomer(CreditAccountFormRequestModel requestModel);
-    }
+        Task<Products> UpdateProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages,string description);
+		Task<List<Customer>> GetCustomers();
+	}
 }

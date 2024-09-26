@@ -35,5 +35,7 @@
         public DateTime? CreationDate { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public bool IsAdminAdded { get; set; }
+        public decimal? DiscountPrice { get; set; }
+        public string? Images { get; set; }
     }
 }

@@ -57,79 +57,128 @@ namespace CanamDistributors.Services
             return csv.ToString();
         }
 
-            public async Task<CategoryEntity> SaveCollection(CollectionRequestModel requestModel)
+        public async Task<CategoryEntity> SaveCollection(CollectionRequestModel requestModel)
+        {
+            var base64Images = new List<string>();
+            foreach (var file in requestModel.CategoryImages)
             {
-                CategoryEntity category = new CategoryEntity();
-                category.ProoductConditions = requestModel.ProoductConditions;
-                category.Category = requestModel.Category;
-                category.CategoryImg = requestModel.CategoryImage;
-                category.Products = requestModel.ProductId;
-                category.DtCreated = DateTime.Now;
-                category.DtUpdated = DateTime.Now;
-                category.IsActive = true;
-                await _context.Category.AddAsync(category);
-                await _context.SaveChangesAsync();
-                return category;
-
-
+                if (file != null && file.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(memoryStream);
+                        var imageBytes = memoryStream.ToArray();
+                        var base64Image = Convert.ToBase64String(imageBytes);
+                        base64Images.Add(base64Image);
+                    }
+                }
             }
 
-        public async Task<CreditAccountFormRequestModel> SaveCustomer(CreditAccountFormRequestModel model)
-        {
-            var request = new Customer
+            // Concatenate Base64 strings with a separator (e.g., "|")
+            var concatenatedImages = string.Join("|", base64Images);
+            // Create a new category entity
+            var category = new CategoryEntity
             {
-                LegalName = model.LegalName,
-                TradeName = model.TradeName,
-                BusinessType = model.BusinessType,
-                PhoneNumber = model.PhoneNumber,
-                TaxID = model.TaxID,
-                IsRegisteredBusiness = model.IsRegisteredBusiness,
-                PSTNumber = model.PSTNumber,
-                BillingAddress = model.BillingAddress,
-                BillingAddress2 = model.BillingAddress2,
-                BillingCity = model.BillingCity,
-                BillingState = model.BillingState,
-                BillingCountry = model.BillingCountry,
-                BillingZip = model.BillingZip,
-                ShippingAddress = model.ShippingAddress,
-                ShippingAddress2 = model.ShippingAddress2,
-                ShippingCity = model.ShippingCity,
-                ShippingState = model.ShippingState,
-                ShippingCountry = model.ShippingCountry,
-                ShippingZipcode = model.ShippingZipcode,
-                BankName = model.BankName,
-                BankContactName = model.BankContactName,
-                BankAddress = model.BankAddress,
-                BankPhoneNumber = model.BankPhoneNumber,
-                TransitNo = model.TransitNo,
-                InstNo = model.InstNo,
-                AccountNo = model.AccountNo,
-                SupplierName = model.SupplierName,
-                SupplierCity = model.SupplierCity,
-                SupplierPhone = model.SupplierPhone,
-                IsContactAuthorized = model.IsContactAuthorized,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Title = model.Title,
-                MobilePhone = model.MobilePhone,
-                EmailAddress = model.EmailAddress,
-                Fax = model.Fax,
-                IsTwoFactorAuthEnabled = model.IsTwoFactorAuthEnabled,
-                MobileNumber = model.MobileNumber,
-                IsAuthorizedToViewInvoices = model.IsAuthorizedToViewInvoices,
-                Password = model.Password,
-                ConfirmPassword = model.ConfirmPassword,
-                IsAuthorizedForPurchases = model.IsAuthorizedForPurchases,
-                AgreesToTerms = model.AgreesToTerms,
-                ReceiveEmails = model.ReceiveEmails,
-                Guarantee = model.Guarantee,
-                AuthorizationForVerification = model.AuthorizationForVerification,
-                AccuracyConfirmation = model.AccuracyConfirmation,
-                TermsAcknowledgement = model.TermsAcknowledgement
+                ProoductConditions = requestModel.ProoductConditions,
+                Category = requestModel.Category,
+                CategoryImg = concatenatedImages, // Use the Base64 string here
+                Products = requestModel.ProductList.Count,
+                DtCreated = DateTime.Now,
+                DtUpdated = DateTime.Now,
+                IsActive = true
             };
-            _context.Add(request);
+
+            // Add the category to the context and save changes
+            await _context.Category.AddAsync(category);
             await _context.SaveChangesAsync();
-            return model;
+
+            // Prepare to collect products
+            var productEntities = new List<CategoryProducts>();
+
+            foreach (var input in requestModel.ProductList)
+            {
+                // Validate and split input
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    var parts = input.Trim(' ', '[', ']', ' ').Split(',');
+
+                    if (parts.Length == 2)
+                    {
+                        // Clean and extract ID and Name
+                        var id = parts[0].Trim('\'', ' ').ToString();
+                        var name = parts[1].Trim('\'', ' ').ToString();
+
+                        // Create the product entity
+                        var productEntity = new CategoryProducts
+                        {
+                            CategoryId = category.CategoryId, // Use the generated CategoryId
+                            ProductId = Convert.ToInt32(id),
+                            ProductName = name
+                        };
+
+                        productEntities.Add(productEntity);
+                    }
+                }
+            }
+
+            // Add all product entities to the context in a single call
+            if (productEntities.Any())
+            {
+                await _context.CategoryProducts.AddRangeAsync(productEntities);
+                await _context.SaveChangesAsync();
+            }
+
+            return category;
         }
-    }
+
+
+
+        public async Task<Products> UpdateProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages, string description)
+        {
+            var base64Images = new List<string>();
+            if(CategoryImages.Count() > 0)
+            {
+                foreach (var file in CategoryImages)
+                {
+                    if (file != null && file.Length > 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(memoryStream);
+                            var imageBytes = memoryStream.ToArray();
+                            var base64Image = Convert.ToBase64String(imageBytes);
+                            base64Images.Add(base64Image);
+                        }
+                    }
+                }
+            }
+            // Concatenate Base64 strings with a separator (e.g., "|")
+            var concatenatedImages = string.Join("|", base64Images);
+            var product = await _context.Products.Where(x => x.Id == productId).AsNoTracking().FirstOrDefaultAsync();
+            if (product != null)
+            {
+                product.DiscountPrice = discountPrice;
+                product.Active = active;
+                product.Description = description;
+                if(concatenatedImages != null)
+                {
+                    product.Images = concatenatedImages;
+                }
+                _context.Update(product);
+                await _context.SaveChangesAsync();
+                return product;
+            }
+            return null;
+        }
+
+		public async Task<List<Customer>> GetCustomers()
+		{
+			List<Customer> customers = await _context.Customer.AsNoTracking().ToListAsync();
+			if (customers != null && customers.Count > 0)
+			{
+				return customers;
+			}
+			return null;
+		}
+	}
 }

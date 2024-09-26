@@ -14,31 +14,32 @@
                 Create Collection
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm("SaveCollection", "Account", FormMethod.Post))
+                @using (Html.BeginForm("SaveCollection", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     <fieldset>
                         <div class="form-group">
                             <label for="Category">Title</label>
-                            <input type="text" asp-for="Category" class="form-control" placeholder="e.g Summer Collection, Under $100, Staff picks" autofocus="true" />
+                            <input type="text" asp-for="Category" class="form-control" placeholder="e.g Summer Collection, Under $100, Staff picks" autofocus="true" required />
                         </div>
                         <div class="form-group">
                             <label for="ProoductConditions">Description</label>
-                            <textarea asp-for="ProoductConditions" id="ProoductConditions" name="ProoductConditions" class="form-control" placeholder="Enter product conditions or description"></textarea>
+                            <textarea asp-for="ProoductConditions" class="form-control" placeholder="Enter product conditions or description"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="filepond">Image</label>
-                            <form id="uploadForm">
-                                <input type="file" asp-for="CategoryImage" name="CategoryImage" id="CategoryImage" />
-                            </form>
-                            <div id="responseMessage"></div>
+                            <label for="CategoryImages">Images</label>
+                            <div class="file-input">
+                                <input type="file" id="fileElem" name="CategoryImages" accept="image/*" multiple />
+                                <span>Select files</span>
+                            </div>
+                            <div id="gallery" style="margin-top: 10px; display: flex; flex-wrap: wrap;"></div>
                         </div>
                         <div class="form-group">
                             <label for="ProductList">Products</label>
-                            <select class="form-control" asp-for="ProductId">
-                                @foreach (var item in @ViewBag.ProductList)
+                            <select class="form-control" multiple="multiple" asp-for="ProductList" name="ProductList">
+                                @foreach (var item in ViewBag.ProductList)
                                 {
-                                    <option value="@item.Id">@item.Name</option>
+                                    <option value='@item.Id,@item.Name'>@item.Name</option>
                                 }
                             </select>
                         </div>
@@ -49,5 +50,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 

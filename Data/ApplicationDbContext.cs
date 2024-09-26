@@ -10,6 +10,7 @@ namespace CanamDistributors.Data
         public DbSet<CategoryEntity> Category { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Customer> Customer { get; set; }
+        public DbSet<CategoryProducts> CategoryProducts { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
         }

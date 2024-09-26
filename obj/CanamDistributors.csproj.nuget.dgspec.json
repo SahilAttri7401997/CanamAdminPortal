@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.3.2, )"
+            },
             "IppDotNetSdkForQuickBooksApiV3": {
               "target": "Package",
               "version": "[14.6.4, )"
@@ -69,6 +73,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.7.1, )"
             },
             "RestSharp": {
               "target": "Package",

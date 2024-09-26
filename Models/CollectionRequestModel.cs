@@ -7,11 +7,12 @@ namespace CanamDistributors.Models
         [Required(ErrorMessage = "Category is required.")]
         public string Category { get; set; }
 
-        [Required(ErrorMessage = "Prooduct Conditions is required.")]
+        [Required(ErrorMessage = "Product Conditions is required.")]
         public string ProoductConditions { get; set; }
 
         [Required(ErrorMessage = "Image is required.")]
-        public string CategoryImage { get; set; }
-        public int ProductId { get; set; }
+        public List<IFormFile> CategoryImages { get; set; } = new List<IFormFile>();
+        public List<string> ProductList { get; set; } = new List<string>();
     }
 }
+

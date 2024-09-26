@@ -12,7 +12,6 @@ namespace CanamDistributors.Entity
         public string PhoneNumber { get; set; }
         public string TaxID { get; set; }
         public bool IsRegisteredBusiness { get; set; }
-        public byte[] ExemptionTaxCertificate { get; set; } // Store as byte array
         public string PSTNumber { get; set; }
         public string BillingAddress { get; set; }
         public string BillingAddress2 { get; set; }

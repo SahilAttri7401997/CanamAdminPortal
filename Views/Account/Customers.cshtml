@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CanamDistributors.Entity.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="page-header">Customers</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Customers
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Title</th>
+                                <th>Mobile Phone</th>
+                                <th>Email</th>
+                                <th>Trade Name</th>
+                                <th>Legal Name</th>
+                                <th>Business Type</th>
+                                <th>Tax Id</th>
+                                <th>PST Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var cutomer in Model)
+                            {
+                                <tr>
+                                    <td>@cutomer.FirstName</td>
+                                    <td>@cutomer.LastName</td>
+                                    <td>@cutomer.Title</td>
+                                    <td>@cutomer.MobilePhone</td>
+                                    <td>@cutomer.EmailAddress</td>
+                                    <td>@cutomer.TradeName</td>
+                                    <td>@cutomer.LegalName</td>
+                                    <td>@cutomer.BusinessType</td>
+                                    <td>@cutomer.TaxID</td>
+                                    <td>@cutomer.PSTNumber</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->

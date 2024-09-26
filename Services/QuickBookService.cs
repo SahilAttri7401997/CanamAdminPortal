@@ -3,13 +3,12 @@ using CanamDistributors.Entity;
 using CanamDistributors.Interfaces;
 using CanamDistributors.Models;
 using EFCore.BulkExtensions;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using NuGet.Packaging;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 using static QuickBookResponseModel;
 
@@ -74,6 +73,10 @@ namespace CanamDistributors.Services
                 var inventoryItems = await FetchInventoryItemsAsync(accessToken, realmId);
                 var productEntities = TransformToProductEntity(inventoryItems);
                 await SaveEntitiesToDatabaseAsync(productEntities, SaveProductsToDatabaseAsync);
+                string idString = "138,186,239,268,322,351,355,444,516,519,92";
+                // Split the string by commas, trim any whitespace, and parse to integers
+                List<int> idsToDelete = idString.Split(',').Select(id => int.Parse(id.Trim())).ToList();
+                await DeleteProductsByIdsAsync(idsToDelete);
             }
             catch (Exception ex)
             {
@@ -95,14 +98,7 @@ namespace CanamDistributors.Services
                 {
                     var query = $"SELECT * FROM Item STARTPOSITION {startPosition} MAXRESULTS {maxResultsPerPage}";
                     var response = await _httpClient.GetAsync($"https://quickbooks.api.intuit.com/v3/company/{realmId}/query?query={Uri.EscapeDataString(query)}");
-
-                    var contentType = response.Content.Headers.ContentType.MediaType;
-                    if (contentType != "application/xml")
-                    {
-                        var responseContent = await response.Content.ReadAsStringAsync();
-                        _logger.LogError($"Expected XML but received {contentType}. Response content: {responseContent}");
-                        throw new InvalidOperationException("Unexpected content type.");
-                    }
+                    var responseContent = await response.Content.ReadAsStringAsync();
 
                     response.EnsureSuccessStatusCode();
                     var responseContentXml = await response.Content.ReadAsStringAsync();
@@ -136,7 +132,7 @@ namespace CanamDistributors.Services
                 SyncToken = item.SyncToken,
                 Name = item.Name,
                 Description = item.Description,
-                Active = item.Active,
+                Active = "false",
                 SubItem = item.SubItem,
                 ParentRefName = item.ParentRef?.Name,
                 ParentRefText = item.ParentRef?.Text,
@@ -193,5 +189,33 @@ namespace CanamDistributors.Services
         }
         private async Task SaveProductsToDatabaseAsync(List<Products> items) =>
             await _context.BulkInsertAsync(items);
+
+        public async Task DeleteProductsByIdsAsync(List<int> ids)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                // Prepare the SQL command with parameterized query to avoid SQL injection
+                var parameterNames = ids.Select((id, index) => $"@id{index}").ToArray();
+                var sql = $"DELETE FROM Products WHERE Id IN ({string.Join(", ", parameterNames)})";
+
+                // Create parameters for the command
+                var parameters = ids.Select((id, index) => new SqlParameter($"@id{index}", id)).ToArray();
+
+                // Execute the command
+                await _context.Database.ExecuteSqlRawAsync(sql, parameters);
+
+                // Commit transaction
+                await transaction.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting products from the database.");
+                // Rollback on error
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+
     }
 }

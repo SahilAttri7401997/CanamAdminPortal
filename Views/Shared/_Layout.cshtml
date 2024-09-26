@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    var IsActive = "true";
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +31,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.2.6/css/froala_editor.pkgd.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/froala-editor@3.2.6/js/froala_editor.pkgd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
 
     <style>
@@ -76,6 +81,55 @@
             input:checked + .slider:before {
                 transform: translateX(26px);
             }
+
+
+        .file-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 150px;
+            border: 2px solid #ccc; /* Light grey border */
+            border-radius: 8px; /* Slightly curved corners */
+            background-color: rgba(240, 240, 240, 0.8); /* Foggy effect with transparency */
+            color: #555; /* Darker text color */
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+            .file-input input[type="file"] {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0; /* Hide the default file input */
+                cursor: pointer;
+            }
+
+            .file-input:hover {
+                border-color: #888; /* Darker grey border on hover */
+            }
+
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            #gallery img {
+                width: 100px;
+                height: auto;
+                margin: 5px;
+                border: 1px solid #ccc;
+            }
+
+        .modal-body {
+            max-height: 400px; /* Adjust height as needed */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
     </style>
 
 
@@ -109,7 +163,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a asp-controller="Account" asp-action="LogOut"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -127,10 +181,10 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="index.html" class="active"><i class="fa fa-home fa-fw"></i> Home</a>
+                        <a asp-controller="Account" asp-action="Dashboard" class="active"><i class="fa fa-home fa-fw"></i> Home</a>
                     </li>
                     <li>
-                        <a href="index.html" class="active"><i class="fa fa-shopping-cart fa-fw"></i> Orders</a>
+                        <a href="#" class="active"><i class="fa fa-shopping-cart fa-fw"></i> Orders</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-tags fa-fw"></i> Sales <span class="fa arrow"></span></a>
@@ -145,22 +199,22 @@
                                 <a asp-controller="Account" asp-action="HotDeals">Hot-Deals</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Inventory</a>
+                                <a href="#">Inventory</a>
                             </li>
                             <li>
-                                <a href="notifications.html">Purchase Orders</a>
+                                <a href="#">Purchase Orders</a>
                             </li>
                             <li>
-                                <a href="icons.html"> Transfers</a>
+                                <a href="#"> Transfers</a>
                             </li>
                             <li>
-                                <a href="grid.html">Gift Cards</a>
+                                <a href="#">Gift Cards</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="index.html" class="active"><i class="fa fa-users fa-fw"></i> Customers</a>
+                        <a asp-controller="Account" asp-action="Customers" class="active"><i class="fa fa-users fa-fw"></i> Customers</a>
                     </li>
                 </ul>
             </div>
@@ -184,6 +238,43 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Product Into Hot Deals</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset>
+                        <input type="hidden" id="ProductId" value="" />
+                        <div class="form-group">
+                            <label for="CategoryImages">Images</label>
+                            <div class="file-input">
+                                <input type="file" id="fileElem" name="CategoryImages" accept="image/*" multiple />
+                                <span>Select files</span>
+                            </div>
+                            <div id="gallery" style="margin-top: 10px; display: flex; flex-wrap: wrap;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ProductConditions">Description</label>
+                            <textarea id="Description" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Category">Hot Deal Price</label>
+                            <input type="number" id="DiscountPrice" class="form-control" placeholder="77$" autofocus="true" required />
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="CloseProductHotDealsModal()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="UpdateProductHotDeals()">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
@@ -193,54 +284,139 @@
     <script src="~/js/startmin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
             new FroalaEditor('#ProoductConditions');
+            new FroalaEditor('#Description');
             $('#dataTables-example').DataTable({
                 responsive: true
             });
-            document.getElementById('uploadForm').addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                var fileInput = document.getElementById('CategoryImage');
-                var file = fileInput.files[0];
-                if (!file) {
-                    alert('Please select a file.');
-                    return;
-                }
-
-                var formData = new FormData();
-                formData.append('file', file);
-
-                fetch('/Account/upload', {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('responseMessage').innerText = 'File uploaded successfully! File path: ' + data.filePath;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        document.getElementById('responseMessage').innerText = 'Failed to upload file.';
-                    });
+            $('#ProductList').select2({
+                placeholder: "Select Products",
+                allowClear: true,
+                width: '100%' // Ensure Select2 takes full width
             });
         });
 
+    </script>
+    <script>
+        // Declare IsActive as a JavaScript variable
+        var IsActive = '@IsActive'; // Use Razor to set the value
 
-      
+        function handleCheckboxChange(checkbox, id, discountPrice) {
+            $('#ProductId').val(id);
+            $('#DiscountPrice').val(discountPrice); // Assuming you have a DiscountPrice input
+            
+            if (checkbox.checked) {
+                IsActive = "true"; // Update the value when checked
+                $('#myModal').modal('show');
+                $('#myModal').data('relatedCheckbox', checkbox);
+            } else {
+                IsActive = "false"; // Update the value when unchecked
+                UpdateProductHotDeals();
+                $('#myModal').modal('hide'); // Close modal if needed
+            }
+        }
+
+        function UpdateProductHotDeals() {
+            // Get values from the input fields
+            var productIdValue = $('#ProductId').val();
+            var discountPriceValue = $('#DiscountPrice').val();
+            var description = $('#Description').val();
+
+            // Check if the Discount Price is empty
+            if (!discountPriceValue) {
+                showToast('Discount Price is required!', 'error');
+                $('#myModal').modal('show');
+                return;
+            }
+
+            // Prepare FormData object
+            var formData = new FormData();
+            formData.append('productId', productIdValue);
+            formData.append('discountPrice', discountPriceValue);
+            formData.append('active', IsActive); // Assuming IsActive is defined elsewhere
+            formData.append('description', description); // Assuming IsActive is defined elsewhere
+
+            // Get the file input
+            var fileInput = document.getElementById('fileElem');
+            for (var i = 0; i < fileInput.files.length; i++) {
+                formData.append('CategoryImages', fileInput.files[i]);
+            }
+
+            // AJAX call to update the product
+            $.ajax({
+                url: '/Account/UpdateProduct', // Update with your actual URL
+                type: 'POST',
+                data: formData,
+                processData: false, // Important for FormData
+                contentType: false, // Important for FormData
+                success: function (response) {
+                    if (response.success) {
+                        showToast('Product updated successfully!', 'success');
+                        $('#myModal').modal('hide');
+                        $('#ProductId').val("");
+                        // Reload the page after a short delay (optional)
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000); // Reload after 1 second
+                        
+                    } else {
+                        showToast(response.message || 'Error updating product!', 'error');
+                        $('#myModal').modal('show');
+                        $('#ProductId').val("");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    showToast('An error occurred: ' + error, 'error');
+                    $('#myModal').modal('show');
+                }
+            });
+        }
+
+
+        // Function to show toaster messages
+        function showToast(message, type) {
+            Toastify({
+                text: message,
+                duration: 3000, // Duration in milliseconds
+                gravity: 'top', // `top` or `bottom`
+                position: 'right', // `left`, `center`, or `right`
+                backgroundColor: type === 'success' ? 'green' : 'red',
+                className: type,
+            }).showToast();
+        }
+
+        function CloseProductHotDealsModal() {
+            var productIdValue = $('#ProductId').val();
+            var chckBoxId = "toggleStatus_" + productIdValue;
+            // Uncheck the checkbox
+            IsActive = "false"; 
+            $('#myModal').modal('hide'); // Close modal if needed
+            $('#' + chckBoxId).prop('checked', false);
+        }
 
     </script>
-
 
     <script>
-        function toggleStatus(checkbox) {
-            // Handle the toggle status change, e.g., send an AJAX request to update the status
-            const isChecked = checkbox.checked;
-            console.log('Status changed:', isChecked ? 'Active' : 'Inactive');
-            // Add your AJAX or fetch request here to update the status in the backend
-        }
+        document.getElementById('fileElem').addEventListener('change', function (event) {
+            const files = event.target.files;
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = ''; // Clear previous images
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    gallery.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
     </script>
+
 </body>
 
 </html>

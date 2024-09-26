@@ -1,124 +1,115 @@
-﻿@model CanamDistributors.Models.LogInViewModel
-
+﻿@model CanamDistributors.Models.LogInViewModel // Adjust to your namespace
 @{
-    ViewData["Title"] = "Login";
     Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>Canam Distributors</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Startmin - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        a {
+            text-decoration: none;
+        }
+
+        .login-page {
+            width: 100%;
             height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa; /* Light background color for contrast */
-        }
-
-        .container {
+            display: inline-block;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100%;
         }
 
-        .login-panel {
-            width: 100% !important;
-            max-width: 500px !important; /* Adjust as needed */
-            max-height: 500px !important;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 8px !important;
-            background-color: #fff !important; /* White background for the panel */
+        .form-right img {
+            max-width: 100%;
+            height: 111px;
+            margin-top: 61px;
         }
 
-            .login-panel .panel-title {
-                font-size: 24px !important;
-                text-align: center !important;
-                font-weight: 700 !important;
-            }
+        .welcome-text {
+            margin-top: 20px; /* Adjust as needed */
+        }
 
-            .login-panel .btn {
-                font-size: 16px !important;
-            }
+        .text-danger {
+            margin-top: 5px;
+        }
 
-            .login-panel .form-group {
-                margin-bottom: 15px !important;
-            }
-
-            .login-panel .checkbox {
-                margin-bottom: 15px !important;
-            }
-
+        /* Styling for error message */
+        .alert {
+            margin-bottom: 20px; /* Add space below the alert */
+            height: 50px; /* Fixed height to prevent layout shift */
+            display: flex; /* Center text vertically */
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="login-panel panel panel-default">
-            <div class="panel-heading" style="text-align:center">
-                <img src="~/images/logo.webp" alt="BootstrapBrain Logo" width="175" height="57">
-            </div>
-            <div class="panel-body">
-                <form asp-action="Login" method="post">
-                    @Html.AntiForgeryToken() <!-- CSRF protection -->
-                    <fieldset>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="E-mail" name="email" type="email" asp-for="Email" autofocus>
-                            <span asp-validation-for="Email" class="text-danger"></span>
+    <div class="login-page bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <h3 class="mb-3">Login Now</h3>
+                    <div class="bg-white shadow rounded">
+                        <div class="row">
+                            <div class="col-md-7 pe-0">
+                                <div class="form-left h-100 py-5 px-5">
+                                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "row g-4" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                                        {
+                                            <div class="alert alert-danger" role="alert">
+                                                @ViewBag.ErrorMessage
+                                            </div>
+                                        }
+                                        if (!ViewData.ModelState.IsValid)
+                                        {
+                                            <div class="alert alert-danger" role="alert">
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            </div>
+                                        }
+
+                                        <div class="col-12">
+                                            <label>Username<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Username" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Password<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter Password" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary px-4 float-end mt-4">Login</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-5 ps-0 d-none d-md-block">
+                                <div class="form-right h-100 bg-primary text-white text-center pt-5">
+                                    <img src="~/images/logo.webp" alt="Logo" />
+                                    <h2 class="welcome-text">Welcome Back!</h2>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" asp-for="Password" value="">
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <!-- Change this to a button or input when using this as a form -->
-                        <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
-                    </fieldset>
-                </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="~/js/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
-
+    <!-- Bootstrap JS -->
 </body>
-
 </html>

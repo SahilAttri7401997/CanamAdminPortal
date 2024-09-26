@@ -12,20 +12,20 @@ namespace CanamDistributors.Controllers
     {
         private readonly IAuthService _authService;
         private readonly IQuickBookService _quickBookService;
-        private readonly string _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
         public AccountController(IAuthService authService, IQuickBookService quickBookService)
         {
             _authService = authService;
             _quickBookService = quickBookService;
-            if (!Directory.Exists(_uploadFolder))
-            {
-                Directory.CreateDirectory(_uploadFolder);
-            }
         }
 
         [HttpGet]
         public IActionResult Login()
         {
+            var erroMessage = TempData["ErrorMessage"] as string;
+            if (!string.IsNullOrEmpty(erroMessage))
+            {
+                ViewBag.ErrorMessage = erroMessage;
+            }
             return View();
         }
 
@@ -40,11 +40,11 @@ namespace CanamDistributors.Controllers
                     // Store admin details in session
                     HttpContext.Session.SetString("AdminName", admin.Name); // Adjust property names as needed
                     TempData["SuccessMessage"] = "Login successful!";
-                    //string redirectURL = _quickBookService.InitiateAuthQuickBook();
-                    //if (redirectURL != null)
-                    //{
-                    //    return Redirect(redirectURL);
-                    //}
+                    string redirectURL = _quickBookService.InitiateAuthQuickBook();
+                    if (redirectURL != null)
+                    {
+                        return Redirect(redirectURL);
+                    }
                     return RedirectToAction("DashBoard", "Account");
                 }
                 else
@@ -61,6 +61,11 @@ namespace CanamDistributors.Controllers
         {
             // Retrieve admin details from session
             var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
+            }
             ViewBag.AdminName = adminName;
             return View();
         }
@@ -90,6 +95,11 @@ namespace CanamDistributors.Controllers
         {
             // Retrieve admin details from session
             var adminName = HttpContext.Session.GetString("AdminName");
+            if(adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
+            }
             ViewBag.AdminName = adminName;
             var products = await _authService.GetProducts();
             if (products == null)
@@ -99,15 +109,6 @@ namespace CanamDistributors.Controllers
             return View(products);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> CreateProduct()
-        {
-            // Retrieve admin details from session
-            var adminName = HttpContext.Session.GetString("AdminName");
-            ViewBag.AdminName = adminName;
-            ViewBag.CategoryList = await _authService.GetCollections();
-            return View();
-        }
 
         public async Task<IActionResult> ExportProducts()
         {
@@ -177,13 +178,16 @@ namespace CanamDistributors.Controllers
             }
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> Collections()
         {
             // Retrieve admin details from session
             var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
+            }
             ViewBag.AdminName = adminName;
             var collections = await _authService.GetCollections();
             if (collections == null)
@@ -198,12 +202,18 @@ namespace CanamDistributors.Controllers
         {
             // Retrieve admin details from session
             var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
+            }
             ViewBag.AdminName = adminName;
             ViewBag.ProductList = await _authService.GetProducts();
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> SaveCollection(CollectionRequestModel categoryRequest)
         {
             if (ModelState.IsValid)
@@ -222,42 +232,18 @@ namespace CanamDistributors.Controllers
 
         }
 
-        [HttpPost("upload")]
-        public async Task<IActionResult> Upload(IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-            {
-                return BadRequest("No file uploaded.");
-            }
-
-            try
-            {
-                var filePath = Path.Combine(_uploadFolder, file.FileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-
-                return Ok(new { filePath });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
         [HttpGet]
         public async Task<IActionResult> HotDeals()
         {
             // Retrieve admin details from session
             var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
+            }
             ViewBag.AdminName = adminName;
             var products = await _authService.GetProducts();
-            foreach (var item in products)
-            {
-                item.Active = "false";
-            }
             if (products == null)
             {
                 products = new List<Entity.Products> { new Entity.Products() };
@@ -265,27 +251,55 @@ namespace CanamDistributors.Controllers
             return View(products);
         }
 
-        [HttpGet]
-        public IActionResult CreditAccountForm()
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(string productId , decimal discountPrice,string active, List<IFormFile> CategoryImages , string description)
         {
-            return View();
+            try
+            {
+                // Find the product by ID
+                var product = await _authService.UpdateProduct(productId, discountPrice, active, CategoryImages, description);
+                if (product == null)
+                {
+                    return Json(new { success = false, message = "Product not found." });
+                }
+                return Json(new { success = true, message = "Product updated successfully!" });
+            }
+            catch (Exception ex)
+            {
+                // Log the error (not shown here for simplicity)
+                return Json(new { success = false, message = "An error occurred: " + ex.Message });
+            }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveCustomer(CreditAccountFormRequestModel model)
-        {
-            if (ModelState.IsValid)
+		[HttpGet]
+		public async Task<IActionResult> Customers()
+		{
+			// Retrieve admin details from session
+			var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
             {
-                var customerModel = await _authService.SaveCustomer(model);
-                if (customerModel != null)
-                {
-                    TempData["SuccessMessage"] = "Register successful!";
-                    return RedirectToAction("CreditAccountForm"); // Redirect to avoid resubmission
-                }
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
             }
-            TempData["ErrorMessage"] = "There was an error processing your request.";
-            return View("CreditAccountForm", model);
+            ViewBag.AdminName = adminName;
+			var customers = await _authService.GetCustomers();
+			if (customers == null)
+			{
+				customers = new List<Entity.Customer> { new Entity.Customer() };
+			}
+			return View(customers);
+		}
+        [HttpGet]
+        public IActionResult LogOut()
+        { 
+            // Clear the session
+            HttpContext.Session.Clear();
+
+            // Optionally, you can also remove specific session items
+            HttpContext.Session.Remove("AdminName");
+
+            // Redirect to the login page or another action
+            return RedirectToAction("Login", "Account");
         }
 
     }
