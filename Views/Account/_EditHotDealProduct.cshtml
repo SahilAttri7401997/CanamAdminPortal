@@ -1,0 +1,57 @@
+﻿@model CanamDistributors.Models.ProductResponseModel
+<div class="modal fade" id="EditHotProductModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Hot Deals</h4>
+            </div>
+            <form asp-action="EditHotDealProduct" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <fieldset>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label for="CategoryImages">Images</label>
+                            <div class="file-input">
+                                <input type="file" id="fileElem" class="fileElem" name="CategoryImages" accept="image/*" multiple />
+                                <span>Select files</span>
+                            </div>
+                            <div id="gallery" style="margin-top: 10px; display: flex; flex-wrap: wrap;">
+                                @if (!string.IsNullOrEmpty(Model.Images))
+                                {
+                                    // Split the concatenated Base64 string
+                                    var base64Images = Model.Images.Split('|');
+
+                                    foreach (var base64Image in base64Images)
+                                    {
+                                        if (!string.IsNullOrEmpty(base64Image))
+                                        {
+                                            <div class="image-container" style="display: inline-block; position: relative; margin-right: 5px;">
+                                                <img src="data:image/png;base64,@base64Image" alt="Category Image" style="width:100px;height:100px;" />
+                                                <button type="button" class="remove-image btn btn-danger btn-sm" style="display: block; margin-top: 5px;" onclick="removeImage(this)">
+                                                    Remove
+                                                </button>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ProductConditions">Description</label>
+                            <textarea id="Description" asp-for="Description" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Category">Hot Deal Price</label>
+                            <input type="number" id="DiscountPrice" asp-for="DiscountPrice" class="form-control" />
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

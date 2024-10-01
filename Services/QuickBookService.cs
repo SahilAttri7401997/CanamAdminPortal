@@ -1,4 +1,5 @@
-﻿using CanamDistributors.Data;
+﻿using Azure.Core;
+using CanamDistributors.Data;
 using CanamDistributors.Entity;
 using CanamDistributors.Interfaces;
 using CanamDistributors.Models;
@@ -132,7 +133,7 @@ namespace CanamDistributors.Services
                 SyncToken = item.SyncToken,
                 Name = item.Name,
                 Description = item.Description,
-                Active = "false",
+                Active = item.Active,
                 SubItem = item.SubItem,
                 ParentRefName = item.ParentRef?.Name,
                 ParentRefText = item.ParentRef?.Text,

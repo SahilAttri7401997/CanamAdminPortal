@@ -4,6 +4,7 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
 
 namespace CanamDistributors.Controllers
@@ -40,11 +41,11 @@ namespace CanamDistributors.Controllers
                     // Store admin details in session
                     HttpContext.Session.SetString("AdminName", admin.Name); // Adjust property names as needed
                     TempData["SuccessMessage"] = "Login successful!";
-                    string redirectURL = _quickBookService.InitiateAuthQuickBook();
-                    if (redirectURL != null)
-                    {
-                        return Redirect(redirectURL);
-                    }
+                    //string redirectURL = _quickBookService.InitiateAuthQuickBook();
+                    //if (redirectURL != null)
+                    //{
+                    //    return Redirect(redirectURL);
+                    //}
                     return RedirectToAction("DashBoard", "Account");
                 }
                 else
@@ -95,7 +96,7 @@ namespace CanamDistributors.Controllers
         {
             // Retrieve admin details from session
             var adminName = HttpContext.Session.GetString("AdminName");
-            if(adminName == null)
+            if (adminName == null)
             {
                 TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
                 return RedirectToAction("Login");
@@ -104,7 +105,7 @@ namespace CanamDistributors.Controllers
             var products = await _authService.GetProducts();
             if (products == null)
             {
-                products = new List<Entity.Products> { new Entity.Products() };
+                products = new List<ProductResponseModel> { new ProductResponseModel() };
             }
             return View(products);
         }
@@ -246,18 +247,18 @@ namespace CanamDistributors.Controllers
             var products = await _authService.GetProducts();
             if (products == null)
             {
-                products = new List<Entity.Products> { new Entity.Products() };
+                products = new List<ProductResponseModel> { new ProductResponseModel() };
             }
             return View(products);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProduct(string productId , decimal discountPrice,string active, List<IFormFile> CategoryImages , string description)
+        public async Task<IActionResult> UpdateHotDealProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages, string description)
         {
             try
             {
                 // Find the product by ID
-                var product = await _authService.UpdateProduct(productId, discountPrice, active, CategoryImages, description);
+                var product = await _authService.UpdateHotDealProduct(productId, discountPrice, active, CategoryImages, description);
                 if (product == null)
                 {
                     return Json(new { success = false, message = "Product not found." });
@@ -271,27 +272,27 @@ namespace CanamDistributors.Controllers
             }
         }
 
-		[HttpGet]
-		public async Task<IActionResult> Customers()
-		{
-			// Retrieve admin details from session
-			var adminName = HttpContext.Session.GetString("AdminName");
+        [HttpGet]
+        public async Task<IActionResult> Customers()
+        {
+            // Retrieve admin details from session
+            var adminName = HttpContext.Session.GetString("AdminName");
             if (adminName == null)
             {
                 TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
                 return RedirectToAction("Login");
             }
             ViewBag.AdminName = adminName;
-			var customers = await _authService.GetCustomers();
-			if (customers == null)
-			{
-				customers = new List<Entity.Customer> { new Entity.Customer() };
-			}
-			return View(customers);
-		}
+            var customers = await _authService.GetCustomers();
+            if (customers == null)
+            {
+                customers = new List<Entity.Customer> { new Entity.Customer() };
+            }
+            return View(customers);
+        }
         [HttpGet]
         public IActionResult LogOut()
-        { 
+        {
             // Clear the session
             HttpContext.Session.Clear();
 
@@ -302,5 +303,47 @@ namespace CanamDistributors.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditHotDealProduct(string id)
+        {
+            // Retrieve admin details from session
+            var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 Unauthorized. Please login first.";
+                return RedirectToAction("Login");
+            }
+
+            ViewBag.AdminName = adminName;
+            // Retrieve products
+            var products = await _authService.GetProducts();
+            if (products == null || !products.Any())
+            {
+                products = new List<ProductResponseModel>();
+            }
+            // Find the specific product by id
+            var product = products.FirstOrDefault(x => x.Id == id);
+            product.Description = RemovePTags(product.Description);
+            // Return the partial view with the product
+            return PartialView("_EditHotDealProduct", product);
+        }
+
+        public async Task<IActionResult> ExportCustomers()
+        {
+            var customers = await _authService.GetCustomers(); // Fetch products from your service
+            var csvData = _authService.GenerateCustomerCsv(customers);
+            return File(Encoding.UTF8.GetBytes(csvData), "text/csv", "customers.csv");
+        }
+        private string RemovePTags(string description)
+        {
+            if (string.IsNullOrEmpty(description))
+                return description;
+
+            // Remove <p> and </p> tags
+            return description
+                .Replace("<p>", "")
+                .Replace("</p>", "")
+                .Trim();
+        }
     }
 }

@@ -6,6 +6,7 @@ using CanamDistributors.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace CanamDistributors.Services
 {
@@ -26,13 +27,69 @@ namespace CanamDistributors.Services
             }
             return null;
         }
-        public async Task<List<Products>> GetProducts()
+        public async Task<List<ProductResponseModel>> GetProducts()
         {
-            List<Products> products = await _context.Products.AsNoTracking().ToListAsync();
-            if (products != null && products.Count > 0)
+            List<ProductResponseModel> productResponses = new List<ProductResponseModel>();
+
+            var productsWithImages = await (from p in _context.Products.AsNoTracking()
+                                            join pi in _context.ProductImages
+                                            on p.Id equals pi.ProductId into productGroup // Create a group join
+                                            from pi in productGroup.DefaultIfEmpty() // Perform left join
+                                            select new
+                                            {
+                                                Product = p,
+                                                Image = pi != null ? pi.Images : null, // Check for null
+                                                DiscountPrice = pi != null ? pi.DiscountPrice : 0, // Default value if null
+                                                IsEnabledForHOTDeal = pi != null ? pi.IsEnabledForHOTDeal : null
+                                            })
+                                            .ToListAsync();
+
+            if (productsWithImages != null && productsWithImages.Count > 0)
             {
-                // Order the products by ParentRefName and convert to a list before returning
-                return products.OrderBy(x => x.Name).ToList();
+                productResponses = productsWithImages
+                    .OrderBy(x => x.Product.Name)
+                    .Select(x => new ProductResponseModel
+                    {
+                        Id = x.Product.Id, // Assuming the Id property exists on Product
+                        SyncToken = x.Product.SyncToken, // Assuming SyncToken exists
+                        Name = x.Product.Name,
+                        Description = x.Product.Description,
+                        Active = x.Product.Active,
+                        SubItem = x.Product.SubItem,
+                        ParentRefName = x.Product.ParentRefName,
+                        ParentRefText = x.Product.ParentRefText,
+                        Level = x.Product.Level,
+                        FullyQualifiedName = x.Product.FullyQualifiedName,
+                        Taxable = x.Product.Taxable,
+                        SalesTaxIncluded = x.Product.SalesTaxIncluded,
+                        UnitPrice = x.Product.UnitPrice,
+                        Type = x.Product.Type,
+                        IncomeAccountRefName = x.Product.IncomeAccountRefName,
+                        IncomeAccountRefText = x.Product.IncomeAccountRefText,
+                        PurchaseTaxIncluded = x.Product.PurchaseTaxIncluded,
+                        PurchaseCost = x.Product.PurchaseCost,
+                        ExpenseAccountRefName = x.Product.ExpenseAccountRefName,
+                        ExpenseAccountRefText = x.Product.ExpenseAccountRefText,
+                        AssetAccountRefName = x.Product.AssetAccountRefName,
+                        AssetAccountRefText = x.Product.AssetAccountRefText,
+                        TrackQtyOnHand = x.Product.TrackQtyOnHand,
+                        QtyOnHand = x.Product.QtyOnHand,
+                        ReorderPoint = x.Product.ReorderPoint,
+                        SalesTaxCodeRefName = x.Product.SalesTaxCodeRefName,
+                        SalesTaxCodeRefText = x.Product.SalesTaxCodeRefText,
+                        InvStartDate = x.Product.InvStartDate,
+                        _domain = x.Product._domain,
+                        _sparse = x.Product._sparse,
+                        CreationDate = x.Product.CreationDate,
+                        LastModifiedDate = x.Product.LastModifiedDate,
+                        IsAdminAdded = x.Product.IsAdminAdded,
+                        DiscountPrice = x.DiscountPrice, // Use the discount price from ProductImages
+                        Images = x.Image, // Use the image from ProductImages
+                        IsEnabledForHOTDeal = x.IsEnabledForHOTDeal,
+                    })
+                    .ToList();
+
+                return productResponses;
             }
             return null;
         }
@@ -46,7 +103,7 @@ namespace CanamDistributors.Services
             return null;
         }
 
-        public string GenerateCsv(IEnumerable<Products> products)
+        public string GenerateCsv(IEnumerable<ProductResponseModel> products)
         {
             var csv = new StringBuilder();
             csv.AppendLine("Category,Name,SKU,Type,Sales Description,Sales Price,Cost,Qty On Hand,ReOrder Point");
@@ -133,10 +190,10 @@ namespace CanamDistributors.Services
 
 
 
-        public async Task<Products> UpdateProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages, string description)
+        public async Task<Products> UpdateHotDealProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages, string description)
         {
             var base64Images = new List<string>();
-            if(CategoryImages.Count() > 0)
+            if (CategoryImages.Count() > 0)
             {
                 foreach (var file in CategoryImages)
                 {
@@ -155,30 +212,75 @@ namespace CanamDistributors.Services
             // Concatenate Base64 strings with a separator (e.g., "|")
             var concatenatedImages = string.Join("|", base64Images);
             var product = await _context.Products.Where(x => x.Id == productId).AsNoTracking().FirstOrDefaultAsync();
+            var productImages = await _context.ProductImages.Where(x => x.ProductId == productId).AsNoTracking().FirstOrDefaultAsync();
             if (product != null)
             {
-                product.DiscountPrice = discountPrice;
-                product.Active = active;
-                product.Description = description;
-                if(concatenatedImages != null)
+                if (!string.IsNullOrEmpty(description))
                 {
-                    product.Images = concatenatedImages;
+                    product.Description = description;
+                }
+                else
+                {
+                    product.Description = product.Description;
                 }
                 _context.Update(product);
+                await _context.SaveChangesAsync();
+
+                if (productImages != null)
+                {
+                    productImages.Id = productImages.Id;
+                    productImages.DiscountPrice = discountPrice;
+                    productImages.ProductId = productId;
+                    if (!string.IsNullOrEmpty(concatenatedImages))
+                    {
+                        productImages.Images = productImages.Images + concatenatedImages;
+                    }
+                    else
+                    {
+                        productImages.Images = productImages.Images;
+                    }
+                    productImages.DtUpdated = DateTime.Now;
+                    productImages.IsEnabledForHOTDeal = active;
+                    _context.Update(productImages);
+                }
+                else
+                {
+                    var productImageEntity = new ProductImages
+                    {
+                        DiscountPrice = discountPrice,
+                        ProductId = productId,
+                        Images = concatenatedImages,
+                        DtCreated = DateTime.Now,
+                        DtUpdated = DateTime.Now,
+                        IsEnabledForHOTDeal = active
+                    };
+                    _context.Add(productImageEntity);
+                }
                 await _context.SaveChangesAsync();
                 return product;
             }
             return null;
         }
 
-		public async Task<List<Customer>> GetCustomers()
-		{
-			List<Customer> customers = await _context.Customer.AsNoTracking().ToListAsync();
-			if (customers != null && customers.Count > 0)
-			{
-				return customers;
-			}
-			return null;
-		}
-	}
+        public async Task<List<Customer>> GetCustomers()
+        {
+            List<Customer> customers = await _context.Customer.AsNoTracking().ToListAsync();
+            if (customers != null && customers.Count > 0)
+            {
+                return customers;
+            }
+            return null;
+        }
+
+        public string GenerateCustomerCsv(IEnumerable<Customer> customers)
+        {
+            var csv = new StringBuilder();
+            csv.AppendLine("First Name,Last Name,Title,Mobile Phone,Email, Trade Name,Legal Name, Business Type,Tax Id,PST Number");
+            foreach (var product in customers)
+            {
+                csv.AppendLine($"{product.FirstName},{product.LastName},{product.Title},{product.MobilePhone},{product.EmailAddress},{product.TradeName},{product.LegalName},{product.BusinessType},{product.TaxID},{product.PSTNumber}");
+            }
+            return csv.ToString();
+        }
+    }
 }

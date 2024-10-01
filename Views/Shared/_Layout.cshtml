@@ -130,6 +130,19 @@
             overflow-y: auto; /* Enable vertical scrolling */
         }
 
+        .image-container {
+            display: inline-block;
+            position: relative;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+            .image-container img {
+                width: 100px; /* Set desired width */
+                height: auto;
+                margin: 5px;
+            }
+
     </style>
 
 
@@ -237,12 +250,12 @@
 
     </div>
     <!-- /#wrapper -->
-    <!-- jQuery -->
+    <!-- jQuery -->@* 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" onclick="CloseProductHotDealsModal()" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Add Product Into Hot Deals</h4>
                 </div>
                 <div class="modal-body">
@@ -251,7 +264,7 @@
                         <div class="form-group">
                             <label for="CategoryImages">Images</label>
                             <div class="file-input">
-                                <input type="file" id="fileElem" name="CategoryImages" accept="image/*" multiple />
+                                <input type="file" id="fileElem" class="fileElem" name="CategoryImages" accept="image/*" multiple />
                                 <span>Select files</span>
                             </div>
                             <div id="gallery" style="margin-top: 10px; display: flex; flex-wrap: wrap;"></div>
@@ -262,7 +275,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Category">Hot Deal Price</label>
-                            <input type="number" id="DiscountPrice" class="form-control" placeholder="77$" autofocus="true" required />
+                            <input type="number" id="DiscountPrice" class="form-control" autofocus="true" required />
                         </div>
                     </fieldset>
                 </div>
@@ -274,8 +287,8 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
-    </div>
-
+    </div> *@
+    <div id="RenderEditHotDealModal"></div>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/metisMenu.min.js"></script>
@@ -307,13 +320,14 @@
         function handleCheckboxChange(checkbox, id, discountPrice) {
             $('#ProductId').val(id);
             $('#DiscountPrice').val(discountPrice); // Assuming you have a DiscountPrice input
-            
+
             if (checkbox.checked) {
                 IsActive = "true"; // Update the value when checked
                 $('#myModal').modal('show');
                 $('#myModal').data('relatedCheckbox', checkbox);
             } else {
                 IsActive = "false"; // Update the value when unchecked
+                $('#DiscountPrice').val(0);
                 UpdateProductHotDeals();
                 $('#myModal').modal('hide'); // Close modal if needed
             }
@@ -326,7 +340,7 @@
             var description = $('#Description').val();
 
             // Check if the Discount Price is empty
-            if (!discountPriceValue) {
+            if (!discountPriceValue && discountPriceValue == 0) {
                 showToast('Discount Price is required!', 'error');
                 $('#myModal').modal('show');
                 return;
@@ -347,7 +361,7 @@
 
             // AJAX call to update the product
             $.ajax({
-                url: '/Account/UpdateProduct', // Update with your actual URL
+                url: '/Account/UpdateHotDealProduct', // Update with your actual URL
                 type: 'POST',
                 data: formData,
                 processData: false, // Important for FormData
@@ -361,7 +375,7 @@
                         setTimeout(function () {
                             location.reload();
                         }, 1000); // Reload after 1 second
-                        
+
                     } else {
                         showToast(response.message || 'Error updating product!', 'error');
                         $('#myModal').modal('show');
@@ -392,7 +406,7 @@
             var productIdValue = $('#ProductId').val();
             var chckBoxId = "toggleStatus_" + productIdValue;
             // Uncheck the checkbox
-            IsActive = "false"; 
+            IsActive = "false";
             $('#myModal').modal('hide'); // Close modal if needed
             $('#' + chckBoxId).prop('checked', false);
         }
@@ -400,21 +414,71 @@
     </script>
 
     <script>
-        document.getElementById('fileElem').addEventListener('change', function (event) {
-            const files = event.target.files;
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('fileElem');
             const gallery = document.getElementById('gallery');
-            gallery.innerHTML = ''; // Clear previous images
 
-            Array.from(files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    gallery.appendChild(img);
-                };
-                reader.readAsDataURL(file);
+            fileInput.addEventListener('change', function (event) {
+                const files = event.target.files;
+
+                Array.from(files).forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const container = document.createElement('div');
+                        container.classList.add('image-container');
+
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+
+                        const removeButton = document.createElement('button');
+                        removeButton.textContent = 'Remove';
+                        removeButton.classList.add('remove-image', 'btn', 'btn-danger', 'btn-sm');
+                        removeButton.style.marginTop = '5px';
+                        removeButton.onclick = function () {
+                            container.remove(); // Remove image container on click
+                        };
+
+                        container.appendChild(img);
+                        container.appendChild(removeButton);
+                        gallery.appendChild(container);
+                    };
+                    reader.readAsDataURL(file);
+                });
             });
         });
+
+        function removeImage(button) {
+            // Handle potential server-side image removal (if applicable)
+            // ... (code to send AJAX request to server to remove image)
+
+            // Remove the image container from the DOM
+            button.parentElement.remove();
+        }
+
+
+
+    </script>
+
+    <script>
+        function EditHotDealProduct(productId) {
+            $.ajax({
+                url: '/Account/EditHotDealProduct', // Update with your actual URL
+                type: 'GET',
+                data:
+                {
+                    id: productId,
+                },
+                success: function (data) {
+                    debugger
+                    $('#RenderEditHotDealModal').html(data);
+                    $('#EditHotProductModal').modal('show');
+                },
+                error: function (xhr, status, error) {
+                    showToast('An error occurred: ' + error, 'error');
+                    $('#EditHotProductModal').modal('hide');
+                }
+            });
+        }
     </script>
 
 </body>

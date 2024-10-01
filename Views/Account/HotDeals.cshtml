@@ -1,10 +1,10 @@
-﻿@model IEnumerable<CanamDistributors.Entity.Products>
+﻿@model IEnumerable<CanamDistributors.Models.ProductResponseModel>
 @{
     ViewData["Title"] = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="page-header">Hot Deals</h1>
+<h1 class="page-header">Hot Deals</h1> 
 
 <div class="row">
     <div class="col-lg-12">
@@ -31,6 +31,7 @@
                                 <th>Qty On Hand</th>
                                 <th>ReOrder Point</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,7 +61,7 @@
                                     <td>@category.Name</td>
                                     <td>@category.Name</td>
                                     <td>@category.Type</td>
-                                    <td>@category.Description</td>
+                                    <td>@Html.Raw(category.Description)</td>
                                     <td>@category.UnitPrice</td>
                                     <td>@category.DiscountPrice</td>
                                     <td>@category.PurchaseCost</td>
@@ -68,10 +69,13 @@
                                     <td>@category.ReorderPoint</td>
                                     <td>
                                         <label class="switch">
-                                            <input type="checkbox" id="toggleStatus_@category.Id" onchange="handleCheckboxChange(this, '@category.Id', @category.DiscountPrice)"
-                                            @(category.Active == "true" ? "checked" : "") />
+                                            <input type="checkbox" id="toggleStatus_@category.Id" onchange="handleCheckboxChange(this, '@category.Id',@category.DiscountPrice)"
+                                            @(category.IsEnabledForHOTDeal == "true" ? "checked" : "") />
                                             <span class="slider round"></span>
                                         </label>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary" onclick="EditHotDealProduct('@category.Id')">Edit</a>
                                     </td>
                                 </tr>
                             }
