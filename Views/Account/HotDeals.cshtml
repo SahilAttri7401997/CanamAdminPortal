@@ -30,6 +30,7 @@
                                 <th>Cost</th>
                                 <th>Qty On Hand</th>
                                 <th>ReOrder Point</th>
+                                <th>Created ON</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -67,15 +68,16 @@
                                     <td>@category.PurchaseCost</td>
                                     <td>@category.QtyOnHand</td>
                                     <td>@category.ReorderPoint</td>
+                                    <td>@category.CreationDate</td>
                                     <td>
                                         <label class="switch">
-                                            <input type="checkbox" id="toggleStatus_@category.Id" onchange="handleCheckboxChange(this, '@category.Id',@category.DiscountPrice)"
+                                            <input type="checkbox" id="toggleStatus_@category.Id" onchange="handleCheckboxChange(this, '@category.Id',@category.DiscountPrice,'@Html.Raw(category.Images)','@Html.Raw(category.Description)','false')"
                                             @(category.IsEnabledForHOTDeal == "true" ? "checked" : "") />
                                             <span class="slider round"></span>
                                         </label>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-primary" onclick="EditHotDealProduct('@category.Id')">Edit</a>
+                                        <a type="button" class="btn btn-primary" onclick="EditHotDealProduct('@category.Id',@category.DiscountPrice,'@Html.Raw(category.Images)','@Html.Raw(category.Description)','false')">Edit</a>
                                     </td>
                                 </tr>
                             }

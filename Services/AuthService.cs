@@ -6,7 +6,6 @@ using CanamDistributors.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
-using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace CanamDistributors.Services
 {
@@ -188,14 +187,14 @@ namespace CanamDistributors.Services
             return category;
         }
 
-
-
-        public async Task<Products> UpdateHotDealProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages, string description)
+        public async Task<Products> UpdateHotDealProduct(string productId, decimal discountPrice, string active, string IsProductEnabled, List<IFormFile> categoryImages, string description, List<string> currentImages)
         {
-            var base64Images = new List<string>();
-            if (CategoryImages.Count() > 0)
+            var newBase64Images = new List<string>();
+
+            // Convert uploaded files to Base64
+            if (categoryImages != null && categoryImages.Count > 0)
             {
-                foreach (var file in CategoryImages)
+                foreach (var file in categoryImages)
                 {
                     if (file != null && file.Length > 0)
                     {
@@ -204,48 +203,59 @@ namespace CanamDistributors.Services
                             await file.CopyToAsync(memoryStream);
                             var imageBytes = memoryStream.ToArray();
                             var base64Image = Convert.ToBase64String(imageBytes);
-                            base64Images.Add(base64Image);
+                            newBase64Images.Add(base64Image);
                         }
                     }
                 }
             }
-            // Concatenate Base64 strings with a separator (e.g., "|")
-            var concatenatedImages = string.Join("|", base64Images);
-            var product = await _context.Products.Where(x => x.Id == productId).AsNoTracking().FirstOrDefaultAsync();
-            var productImages = await _context.ProductImages.Where(x => x.ProductId == productId).AsNoTracking().FirstOrDefaultAsync();
+
+            // Trim existing images to remove data:image/png;base64, if present
+            var trimmedCurrentImages = currentImages.Select(image =>
+                image.StartsWith("data:image/png;base64,") ? image.Substring("data:image/png;base64,".Length) : image).ToList();
+
+            // Concatenate new and existing Base64 images with a separator
+            var concatenatedImages = string.Join("|", newBase64Images);
+            if (trimmedCurrentImages != null && trimmedCurrentImages.Count > 0)
+            {
+                concatenatedImages = string.IsNullOrEmpty(concatenatedImages)
+                    ? string.Join("|", trimmedCurrentImages)
+                    : concatenatedImages + "|" + string.Join("|", trimmedCurrentImages);
+            }
+
+            // Fetch the existing product and its images
+            var product = await _context.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Id == productId);
+            var productImages = await _context.ProductImages.AsNoTracking().FirstOrDefaultAsync(x => x.ProductId == productId);
+
             if (product != null)
             {
-                if (!string.IsNullOrEmpty(description))
-                {
-                    product.Description = description;
-                }
-                else
-                {
-                    product.Description = product.Description;
-                }
+                // Update product details
+                product.Description = description;
+                product.Active = IsProductEnabled;
                 _context.Update(product);
                 await _context.SaveChangesAsync();
 
                 if (productImages != null)
                 {
-                    productImages.Id = productImages.Id;
-                    productImages.DiscountPrice = discountPrice;
-                    productImages.ProductId = productId;
-                    if (!string.IsNullOrEmpty(concatenatedImages))
+                    // Clear the existing images first
+                    productImages.Images = string.Empty;
+
+                    // Update product images
+                    if(active == "true")
                     {
-                        productImages.Images = productImages.Images + concatenatedImages;
+                        productImages.DiscountPrice = discountPrice;
                     }
-                    else
-                    {
-                        productImages.Images = productImages.Images;
-                    }
+                    // Set new images
+                    productImages.Images = concatenatedImages; // Assign new images directly
                     productImages.DtUpdated = DateTime.Now;
                     productImages.IsEnabledForHOTDeal = active;
+
+                    // Update the product images in the database
                     _context.Update(productImages);
                 }
                 else
                 {
-                    var productImageEntity = new ProductImages
+                    // Create new product images entry
+                    var newProductImageEntity = new ProductImages
                     {
                         DiscountPrice = discountPrice,
                         ProductId = productId,
@@ -254,13 +264,17 @@ namespace CanamDistributors.Services
                         DtUpdated = DateTime.Now,
                         IsEnabledForHOTDeal = active
                     };
-                    _context.Add(productImageEntity);
+                    _context.Add(newProductImageEntity);
                 }
+
                 await _context.SaveChangesAsync();
                 return product;
             }
-            return null;
+
+            return null; // Return null if product not found
         }
+
+
 
         public async Task<List<Customer>> GetCustomers()
         {
@@ -281,6 +295,49 @@ namespace CanamDistributors.Services
                 csv.AppendLine($"{product.FirstName},{product.LastName},{product.Title},{product.MobilePhone},{product.EmailAddress},{product.TradeName},{product.LegalName},{product.BusinessType},{product.TaxID},{product.PSTNumber}");
             }
             return csv.ToString();
+        }
+
+        public async Task<bool> DeleteCollection(int categoryId)
+        {
+            // Find the category by ID
+            var category = await _context.Category.FindAsync(categoryId);
+
+            if (category == null)
+            {
+                // If the category doesn't exist, return false
+                return false;
+            }
+
+            // Remove the category from the DbSet
+            _context.Category.Remove(category);
+
+            // Save changes to the database
+            await _context.SaveChangesAsync();
+
+            // Return true to indicate successful deletion
+            return true;
+        }
+
+        public async Task<bool> UpdateCollectionStatus(bool IsCollectionStatus, int categoryId)
+        {
+            // Find the category by ID
+            var category = await _context.Category.FindAsync(categoryId);
+
+            if (category == null)
+            {
+                // If the category doesn't exist, return false
+                return false;
+            }
+            category.IsActive = IsCollectionStatus;
+            category.DtUpdated = DateTime.Now;
+            // Remove the category from the DbSet
+            _context.Category.Update(category);
+
+            // Save changes to the database
+            await _context.SaveChangesAsync();
+
+            // Return true to indicate successful deletion
+            return true;
         }
     }
 }

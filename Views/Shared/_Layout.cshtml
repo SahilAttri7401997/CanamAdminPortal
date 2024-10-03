@@ -1,5 +1,6 @@
 ﻿@{
-    var IsActive = "true";
+    var IsActive = "false";
+    var IsProductEnabled = "true";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -250,7 +251,7 @@
 
     </div>
     <!-- /#wrapper -->
-    <!-- jQuery -->@* 
+    <!-- jQuery -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -258,13 +259,13 @@
                     <button type="button" class="close" onclick="CloseProductHotDealsModal()" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Add Product Into Hot Deals</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body"
                     <fieldset>
                         <input type="hidden" id="ProductId" value="" />
                         <div class="form-group">
                             <label for="CategoryImages">Images</label>
                             <div class="file-input">
-                                <input type="file" id="fileElem" class="fileElem" name="CategoryImages" accept="image/*" multiple />
+                                <input type="file" id="fileElem" name="CategoryImages" accept="image/*" multiple />
                                 <span>Select files</span>
                             </div>
                             <div id="gallery" style="margin-top: 10px; display: flex; flex-wrap: wrap;"></div>
@@ -284,11 +285,9 @@
                     <button type="button" class="btn btn-primary" onclick="UpdateProductHotDeals()">Save changes</button>
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
-    </div> *@
-    <div id="RenderEditHotDealModal"></div>
+    </div>
+
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/metisMenu.min.js"></script>
@@ -301,7 +300,6 @@
     <script>
         $(document).ready(function () {
             new FroalaEditor('#ProoductConditions');
-            new FroalaEditor('#Description');
             $('#dataTables-example').DataTable({
                 responsive: true
             });
@@ -313,73 +311,143 @@
         });
 
     </script>
+
     <script>
-        // Declare IsActive as a JavaScript variable
         var IsActive = '@IsActive'; // Use Razor to set the value
+        var IsProductEnabled = '@IsProductEnabled'; // Use Razor to set the value
+        var removedImages = []; // Array to keep track of removed images
+        var currentImages = []; // Array to keep track of current images
+        var selectedFiles = []; // Array to track newly selected files
 
-        function handleCheckboxChange(checkbox, id, discountPrice) {
+        function handleCheckboxChange(checkbox, id, discountPrice, imageUrls, description, IsProductActive) {
             $('#ProductId').val(id);
-            $('#DiscountPrice').val(discountPrice); // Assuming you have a DiscountPrice input
+            $('#DiscountPrice').val(discountPrice);
+            $('#Description').val(description);
 
-            if (checkbox.checked) {
-                IsActive = "true"; // Update the value when checked
+            // Clear previous images from the gallery
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            currentImages = []; // Reset current images
+
+            // Split the image URLs into an array
+            var imagesArray = imageUrls.split('|');
+
+            // Loop through the images array and create image elements
+            imagesArray.forEach(function (imageData) {
+                if (imageData) {
+                    const formattedImage = formatBase64Image(imageData); // Format the base64 string
+                    currentImages.push(formattedImage); // Store current images
+                    const container = createImageContainer(formattedImage); // Create image container
+                    gallery.appendChild(container); // Append to the gallery
+                }
+            });
+
+            // Handle checkbox state
+            if (checkbox.checked && IsProductActive == "true") {
+                IsProductEnabled = "true";
                 $('#myModal').modal('show');
                 $('#myModal').data('relatedCheckbox', checkbox);
             } else {
-                IsActive = "false"; // Update the value when unchecked
-                $('#DiscountPrice').val(0);
+                IsProductEnabled = "false";
+                $('#DiscountPrice').val(1);
                 UpdateProductHotDeals();
                 $('#myModal').modal('hide'); // Close modal if needed
+            }
+
+            // Handle checkbox state
+            if (IsProductActive == "false") {
+                if (checkbox.checked) {
+                    IsActive = "true";
+                    $('#myModal').modal('show');
+                    $('#myModal').data('relatedCheckbox', checkbox);
+                } else {
+                    IsActive = "false";
+                    $('#DiscountPrice').val(0);
+                    UpdateProductHotDeals();
+                    $('#myModal').modal('hide'); // Close modal if needed
+                }
+            }
+        }
+
+        function createImageContainer(imageUrl) {
+            const container = document.createElement('div');
+            container.classList.add('image-container');
+
+            const img = document.createElement('img');
+            img.src = imageUrl; // Use the URL directly
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.classList.add('remove-image', 'btn', 'btn-danger', 'btn-sm');
+            removeButton.onclick = function () {
+                handleImageRemoval(imageUrl); // Track the removed image
+                container.remove(); // Remove image container on click
+            };
+
+            container.appendChild(img);
+            container.appendChild(removeButton);
+            return container;
+        }
+
+        function handleImageRemoval(imageUrl) {
+            removedImages.push(imageUrl); // Track the removed image
+            const index = currentImages.indexOf(imageUrl);
+            if (index > -1) {
+                currentImages.splice(index, 1); // Remove from current images
             }
         }
 
         function UpdateProductHotDeals() {
-            // Get values from the input fields
             var productIdValue = $('#ProductId').val();
             var discountPriceValue = $('#DiscountPrice').val();
             var description = $('#Description').val();
 
-            // Check if the Discount Price is empty
-            if (!discountPriceValue && discountPriceValue == 0) {
+            if (IsProductEnabled == "false" && discountPriceValue == 0) {
                 showToast('Discount Price is required!', 'error');
                 $('#myModal').modal('show');
                 return;
             }
 
-            // Prepare FormData object
             var formData = new FormData();
             formData.append('productId', productIdValue);
             formData.append('discountPrice', discountPriceValue);
-            formData.append('active', IsActive); // Assuming IsActive is defined elsewhere
-            formData.append('description', description); // Assuming IsActive is defined elsewhere
+            formData.append('active', IsActive);
+            formData.append('description', description);
+            formData.append('IsProductEnabled', IsProductEnabled);
 
-            // Get the file input
-            var fileInput = document.getElementById('fileElem');
-            for (var i = 0; i < fileInput.files.length; i++) {
-                formData.append('CategoryImages', fileInput.files[i]);
-            }
+            // Append removed images
+            removedImages.forEach(function (image) {
+                formData.append('removedImages', image);
+            });
+
+            // Append current images as URLs
+            currentImages.forEach(function (imageUrl) {
+                formData.append('currentImages', imageUrl); // Append URL directly
+            });
+
+            // Handle newly selected images
+            selectedFiles.forEach(function (file) {
+                formData.append('CategoryImages', file); // These should be File objects
+            });
 
             // AJAX call to update the product
             $.ajax({
-                url: '/Account/UpdateHotDealProduct', // Update with your actual URL
+                url: '/Account/UpdateHotDealProduct',
                 type: 'POST',
                 data: formData,
-                processData: false, // Important for FormData
-                contentType: false, // Important for FormData
+                processData: false,
+                contentType: false,
                 success: function (response) {
                     if (response.success) {
                         showToast('Product updated successfully!', 'success');
                         $('#myModal').modal('hide');
                         $('#ProductId').val("");
-                        // Reload the page after a short delay (optional)
                         setTimeout(function () {
                             location.reload();
-                        }, 1000); // Reload after 1 second
-
+                        }, 1000);
                     } else {
                         showToast(response.message || 'Error updating product!', 'error');
                         $('#myModal').modal('show');
-                        $('#ProductId').val("");
                     }
                 },
                 error: function (xhr, status, error) {
@@ -389,17 +457,91 @@
             });
         }
 
-
-        // Function to show toaster messages
         function showToast(message, type) {
             Toastify({
                 text: message,
-                duration: 3000, // Duration in milliseconds
-                gravity: 'top', // `top` or `bottom`
-                position: 'right', // `left`, `center`, or `right`
+                duration: 3000,
+                gravity: 'top',
+                position: 'right',
                 backgroundColor: type === 'success' ? 'green' : 'red',
                 className: type,
             }).showToast();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('fileElem');
+            const gallery = document.getElementById('gallery');
+
+            fileInput.addEventListener('change', function (event) {
+                const files = event.target.files;
+                selectedFiles = []; // Reset selected files array
+
+                Array.from(files).forEach(file => {
+                    const container = createNewImageContainer(URL.createObjectURL(file));
+                    gallery.appendChild(container);
+                    selectedFiles.push(file); // Add to selected files array
+                });
+            });
+        });
+
+        function createNewImageContainer(imageSrc) {
+            const container = document.createElement('div');
+            container.classList.add('image-container');
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.classList.add('remove-image', 'btn', 'btn-danger', 'btn-sm');
+            removeButton.onclick = function () {
+                container.remove(); // Remove image container on click
+                // Logic to remove from selected files
+                const index = selectedFiles.indexOf(img.src);
+                if (index > -1) {
+                    selectedFiles.splice(index, 1);
+                }
+            };
+
+            container.appendChild(img);
+            container.appendChild(removeButton);
+            return container;
+        }
+
+        function formatBase64Image(imageData) {
+            // Check if the imageData already has the prefix
+            if (!imageData.startsWith('data:image/')) {
+                // Assuming the image format is PNG. Change it if necessary.
+                imageData = 'data:image/png;base64,' + imageData;
+            }
+            return imageData;
+        }
+
+        function EditHotDealProduct(productId, discountPrice, imageUrls, description, IsProductActive) {
+            IsActive = "true";
+            IsProductEnabled = IsProductActive;
+            $('#ProductId').val(productId);
+            $('#DiscountPrice').val(discountPrice);
+            $('#Description').val(description);
+
+            // Clear previous images from the gallery
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            currentImages = []; // Reset current images
+
+            // Split the image URLs into an array
+            var imagesArray = imageUrls.split('|');
+
+            // Loop through the images array and create image elements
+            imagesArray.forEach(function (imageData) {
+                if (imageData) {
+                    const formattedImage = formatBase64Image(imageData); // Format the base64 string
+                    currentImages.push(formattedImage); // Store current images
+                    const container = createImageContainer(formattedImage); // Create image container
+                    gallery.appendChild(container); // Append to the gallery
+                }
+            });
+            $('#myModal').modal('show');
         }
 
         function CloseProductHotDealsModal() {
@@ -411,74 +553,59 @@
             $('#' + chckBoxId).prop('checked', false);
         }
 
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const fileInput = document.getElementById('fileElem');
-            const gallery = document.getElementById('gallery');
-
-            fileInput.addEventListener('change', function (event) {
-                const files = event.target.files;
-
-                Array.from(files).forEach(file => {
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        const container = document.createElement('div');
-                        container.classList.add('image-container');
-
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-
-                        const removeButton = document.createElement('button');
-                        removeButton.textContent = 'Remove';
-                        removeButton.classList.add('remove-image', 'btn', 'btn-danger', 'btn-sm');
-                        removeButton.style.marginTop = '5px';
-                        removeButton.onclick = function () {
-                            container.remove(); // Remove image container on click
-                        };
-
-                        container.appendChild(img);
-                        container.appendChild(removeButton);
-                        gallery.appendChild(container);
-                    };
-                    reader.readAsDataURL(file);
-                });
-            });
-        });
-
-        function removeImage(button) {
-            // Handle potential server-side image removal (if applicable)
-            // ... (code to send AJAX request to server to remove image)
-
-            // Remove the image container from the DOM
-            button.parentElement.remove();
-        }
-
-
-
-    </script>
-
-    <script>
-        function EditHotDealProduct(productId) {
+        function DeleteCollection(categoryId) {
             $.ajax({
-                url: '/Account/EditHotDealProduct', // Update with your actual URL
-                type: 'GET',
-                data:
-                {
-                    id: productId,
+                url: '/Account/DeleteCollection',
+                type: 'POST',
+                data: {
+                    categoryId: categoryId
                 },
-                success: function (data) {
-                    debugger
-                    $('#RenderEditHotDealModal').html(data);
-                    $('#EditHotProductModal').modal('show');
+                success: function (response) {
+                    if (response.success) {
+                        showToast('Collection deleted successfully!', 'success');
+                        setTimeout(function () {
+                            location.reload(); // Reload the page after a delay
+                        }, 1000);
+                    } else {
+                        showToast(response.message || 'Error deleting collection!', 'error');
+                    }
                 },
                 error: function (xhr, status, error) {
                     showToast('An error occurred: ' + error, 'error');
-                    $('#EditHotProductModal').modal('hide');
                 }
             });
         }
+
+        function UpdateCollectionStatus(checkbox, categoryId) {
+            var IsCollectionStatus;
+            if (checkbox.checked) {
+                IsCollectionStatus = true;
+            } else {
+                IsCollectionStatus = false;
+            }
+            $.ajax({
+                url: '/Account/UpdateCollectionStatus',
+                type: 'POST',
+                data: {
+                    IsCollectionStatus: IsCollectionStatus,
+                    categoryId: categoryId
+                },
+                success: function (response) {
+                    if (response.success) {
+                        showToast('Collection status updated successfully!', 'success');
+                        setTimeout(function () {
+                            location.reload(); // Reload the page after a delay
+                        }, 1000);
+                    } else {
+                        showToast(response.message || 'Error status updation collection!', 'error');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    showToast('An error occurred: ' + error, 'error');
+                }
+            });
+        }
+
     </script>
 
 </body>

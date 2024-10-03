@@ -23,13 +23,17 @@
                                 <th>Category</th>
                                 <th>Products</th>
                                 <th>Product Conditions</th>
+                                <th>Created ON</th>
+                                <th>Updated ON</th>
+                                <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var category in Model)
                             {
                                 <tr>
-                                    <td> 
+                                    <td>
                                         @if (!string.IsNullOrEmpty(category.CategoryImg))
                                         {
                                             // Split the concatenated Base64 string
@@ -51,6 +55,18 @@
                                     <td>@category.Category</td>
                                     <td>@category.Products</td>
                                     <td>@Html.Raw(@category.ProoductConditions)</td>
+                                    <td>@category.DtCreated</td>
+                                    <td>@category.DtUpdated</td>
+                                    <td>
+                                        <label class="switch"> 
+                                            <input type="checkbox" onchange="UpdateCollectionStatus(this, @category.CategoryId)"
+                                            @(category.IsActive == true ? "checked" : "") />
+                                            <span class="slider round"></span>
+                                        </label> 
+                                    </td>
+                                    <td>
+                                        <a type="button" class="btn btn-primary" onclick="DeleteCollection(@category.CategoryId)">Delete</a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>

@@ -253,12 +253,12 @@ namespace CanamDistributors.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateHotDealProduct(string productId, decimal discountPrice, string active, List<IFormFile> CategoryImages, string description)
+        public async Task<IActionResult> UpdateHotDealProduct(string productId, decimal discountPrice, string active, string IsProductEnabled, List<IFormFile> CategoryImages, string description, List<string> removedImages, List<string> currentImages)
         {
             try
             {
                 // Find the product by ID
-                var product = await _authService.UpdateHotDealProduct(productId, discountPrice, active, CategoryImages, description);
+                var product = await _authService.UpdateHotDealProduct(productId, discountPrice, active, IsProductEnabled, CategoryImages, description, currentImages);
                 if (product == null)
                 {
                     return Json(new { success = false, message = "Product not found." });
@@ -302,48 +302,52 @@ namespace CanamDistributors.Controllers
             // Redirect to the login page or another action
             return RedirectToAction("Login", "Account");
         }
-
-        [HttpGet]
-        public async Task<IActionResult> EditHotDealProduct(string id)
-        {
-            // Retrieve admin details from session
-            var adminName = HttpContext.Session.GetString("AdminName");
-            if (adminName == null)
-            {
-                TempData["ErrorMessage"] = "401 Unauthorized. Please login first.";
-                return RedirectToAction("Login");
-            }
-
-            ViewBag.AdminName = adminName;
-            // Retrieve products
-            var products = await _authService.GetProducts();
-            if (products == null || !products.Any())
-            {
-                products = new List<ProductResponseModel>();
-            }
-            // Find the specific product by id
-            var product = products.FirstOrDefault(x => x.Id == id);
-            product.Description = RemovePTags(product.Description);
-            // Return the partial view with the product
-            return PartialView("_EditHotDealProduct", product);
-        }
-
         public async Task<IActionResult> ExportCustomers()
         {
             var customers = await _authService.GetCustomers(); // Fetch products from your service
             var csvData = _authService.GenerateCustomerCsv(customers);
             return File(Encoding.UTF8.GetBytes(csvData), "text/csv", "customers.csv");
         }
-        private string RemovePTags(string description)
-        {
-            if (string.IsNullOrEmpty(description))
-                return description;
 
-            // Remove <p> and </p> tags
-            return description
-                .Replace("<p>", "")
-                .Replace("</p>", "")
-                .Trim();
+        [HttpPost]
+        public async Task<IActionResult> DeleteCollection(int categoryId)
+        {
+            try
+            {
+                // Find the product by ID
+                bool IsDeleted = await _authService.DeleteCollection(categoryId);
+                if (!IsDeleted)
+                {
+                    return Json(new { success = false, message = "Collection not found." });
+                }
+                return Json(new { success = true, message = "Collection deleted successfully!" });
+            }
+            catch (Exception ex)
+            {
+                // Log the error (not shown here for simplicity)
+                return Json(new { success = false, message = "An error occurred: " + ex.Message });
+            }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateCollectionStatus(bool IsCollectionStatus ,int categoryId)
+        {
+            try
+            {
+                // Find the product by ID
+                bool IsUpdated = await _authService.UpdateCollectionStatus(IsCollectionStatus,categoryId);
+                if (!IsUpdated)
+                {
+                    return Json(new { success = false, message = "Collection not found." });
+                }
+                return Json(new { success = true, message = "Collection updated successfully!" });
+            }
+            catch (Exception ex)
+            {
+                // Log the error (not shown here for simplicity)
+                return Json(new { success = false, message = "An error occurred: " + ex.Message });
+            }
+        }
+
     }
 }

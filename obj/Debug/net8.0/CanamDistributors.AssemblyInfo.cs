@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CanamDistributors")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4afbbff7bf2db31d09b96acf1b238d311edf985e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecb69b38c345cabbaedf5989900df351b07378a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CanamDistributors")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CanamDistributors")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
