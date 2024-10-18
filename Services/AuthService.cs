@@ -239,7 +239,7 @@ namespace CanamDistributors.Services
             if (product != null)
             {
                 // Update product details
-                product.Description = description;
+                product.Description = string.IsNullOrEmpty(description) ? product.Description : description;
                 product.Active = IsProductEnabled;
                 _context.Update(product);
                 await _context.SaveChangesAsync();
@@ -354,13 +354,69 @@ namespace CanamDistributors.Services
         public string GenerateCustomerCsv(IEnumerable<CustomerResponseModel> customers)
         {
             var csv = new StringBuilder();
-            csv.AppendLine("First Name,Last Name,Title,Mobile Phone,Email, Trade Name,Legal Name, Business Type,Tax Id,PST Number");
-            foreach (var product in customers)
+
+            // CSV Header
+            csv.AppendLine("First Name,Last Name,Title,Mobile Phone,Email,Trade Name,Legal Name,Business Type,Tax Id,PST Number,Billing Address,Billing Address 2,Billing City,Billing State,Billing Country,Billing Zip,Shipping Address,Shipping Address 2,Shipping City,Shipping State,Shipping Country,Shipping Zipcode,Bank Name,Bank Contact Name,Bank Address,Bank Phone Number,Transit No,Inst No,Account No,Fax,Mobile Number,Password,CC First Name,CC Last Name,CC Number,CC Expiry Month,CC Expiry Year,CVV,Business Status,PST Certificate,Supplier Name 1,Supplier City 1,Supplier Phone 1,Supplier Name 2,Supplier City 2,Supplier Phone 2,Supplier Name 3,Supplier City 3,Supplier Phone 3");
+
+            // CSV Rows
+            foreach (var customer in customers)
             {
-                csv.AppendLine($"{product.FirstName},{product.LastName},{product.Title},{product.MobilePhone},{product.EmailAddress},{product.TradeName},{product.LegalName},{product.BusinessType},{product.TaxID},{product.PSTNumber}");
+                csv.AppendLine(
+                    $"{customer.FirstName}," +
+                    $"{customer.LastName}," +
+                    $"{customer.Title}," +
+                    $"{customer.MobilePhone}," +
+                    $"{customer.EmailAddress}," +
+                    $"{customer.TradeName}," +
+                    $"{customer.LegalName}," +
+                    $"{customer.BusinessType}," +
+                    $"{customer.TaxID}," +
+                    $"{customer.PSTNumber}," +
+                    $"{customer.BillingAddress}," +
+                    $"{customer.BillingAddress2}," +
+                    $"{customer.BillingCity}," +
+                    $"{customer.BillingState}," +
+                    $"{customer.BillingCountry}," +
+                    $"{customer.BillingZip}," +
+                    $"{customer.ShippingAddress}," +
+                    $"{customer.ShippingAddress2}," +
+                    $"{customer.ShippingCity}," +
+                    $"{customer.ShippingState}," +
+                    $"{customer.ShippingCountry}," +
+                    $"{customer.ShippingZipcode}," +
+                    $"{customer.BankName}," +
+                    $"{customer.BankContactName}," +
+                    $"{customer.BankAddress}," +
+                    $"{customer.BankPhoneNumber}," +
+                    $"{customer.TransitNo}," +
+                    $"{customer.InstNo}," +
+                    $"{customer.AccountNo}," +
+                    $"{customer.Fax}," +
+                    $"{customer.MobileNumber}," +
+                    $"{customer.Password}," +
+                    $"{customer.CCFirstName}," +
+                    $"{customer.CCLastName}," +
+                    $"{customer.CCNumber}," +
+                    $"{customer.CCExpiryMonth}," +
+                    $"{customer.CCExpiryYear}," +
+                    $"{customer.CVV}," +
+                    $"{customer.BusinessStatus}," +
+                    $"{customer.PSTCertificate}," +
+                    $"{customer.SupplierName1}," +
+                    $"{customer.SupplierCity1}," +
+                    $"{customer.SupplierPhone1}," +
+                    $"{customer.SupplierName2}," +
+                    $"{customer.SupplierCity2}," +
+                    $"{customer.SupplierPhone2}," +
+                    $"{customer.SupplierName3}," +
+                    $"{customer.SupplierCity3}," +
+                    $"{customer.SupplierPhone3}"
+                );
             }
+
             return csv.ToString();
         }
+
 
         public async Task<bool> DeleteCollection(int categoryId)
         {

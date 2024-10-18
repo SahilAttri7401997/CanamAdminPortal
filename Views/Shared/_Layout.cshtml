@@ -301,8 +301,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
+        var editorInstance;
         $(document).ready(function () {
-            new FroalaEditor('#ProoductConditions');
+            editorInstance = new FroalaEditor('#ProoductConditions', {
+                // Your configuration options can go here
+            });
             $('#dataTables-example').DataTable({
                 responsive: true
             });
@@ -324,12 +327,9 @@
         function handleCheckboxChange(checkbox, id, discountPrice, imageUrls, description, IsProductActive) {
             $('#ProductId').val(id);
             $('#DiscountPrice').val(discountPrice);
-            // $('#ProoductConditions').val(description);
-            var editorInstance = new FroalaEditor('#ProoductConditions');
-
+            
             // Set content after initialization using the API
             editorInstance.html.set(description);
-            $('#ProoductConditions').froalaEditor('html.set', description);
 
 
             // Clear previous images from the gallery
@@ -566,8 +566,9 @@
             IsProductEnabled = IsProductActive;
             $('#ProductId').val(productId);
             $('#DiscountPrice').val(discountPrice);
-            $('#Description').val(description);
 
+            // Set content after initialization using the API
+            editorInstance.html.set(description);
             // Clear previous images from the gallery
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
