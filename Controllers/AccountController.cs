@@ -40,7 +40,6 @@ namespace CanamDistributors.Controllers
                 {
                     // Store admin details in session
                     HttpContext.Session.SetString("AdminName", admin.Name); // Adjust property names as needed
-                    TempData["SuccessMessage"] = "Login successful!";
                     //string redirectURL = _quickBookService.InitiateAuthQuickBook();
                     //if (redirectURL != null)
                     //{
@@ -286,7 +285,7 @@ namespace CanamDistributors.Controllers
             var customers = await _authService.GetCustomers();
             if (customers == null)
             {
-                customers = new List<Entity.Customer> { new Entity.Customer() };
+                customers = new List<CustomerResponseModel> { new CustomerResponseModel() };
             }
             return View(customers);
         }
@@ -330,12 +329,12 @@ namespace CanamDistributors.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateCollectionStatus(bool IsCollectionStatus ,int categoryId)
+        public async Task<IActionResult> UpdateCollectionStatus(bool IsCollectionStatus, int categoryId)
         {
             try
             {
                 // Find the product by ID
-                bool IsUpdated = await _authService.UpdateCollectionStatus(IsCollectionStatus,categoryId);
+                bool IsUpdated = await _authService.UpdateCollectionStatus(IsCollectionStatus, categoryId);
                 if (!IsUpdated)
                 {
                     return Json(new { success = false, message = "Collection not found." });
@@ -346,6 +345,40 @@ namespace CanamDistributors.Controllers
             {
                 // Log the error (not shown here for simplicity)
                 return Json(new { success = false, message = "An error occurred: " + ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeletedCollections()
+        {
+            // Retrieve admin details from session
+            var adminName = HttpContext.Session.GetString("AdminName");
+            if (adminName == null)
+            {
+                TempData["ErrorMessage"] = "401 UnAuthorized Please login first.";
+                return RedirectToAction("Login");
+            }
+            ViewBag.AdminName = adminName;
+            var collections = await _authService.GetDeletedCollections();
+            if (collections == null)
+            {
+                collections = null;
+            }
+            return View(collections);
+        }
+
+        public async Task<IActionResult> ResetCollection(int categoryId)
+        {
+            var saveCollection = await _authService.ResetCollection(categoryId);
+            if (saveCollection != null)
+            {
+                TempData["SuccessMessage"] = "Reset successful!";
+                return RedirectToAction("Collections", "Account");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "An error occurred while rest the collection";
+                return RedirectToAction("DeletedCollections", "Account");
             }
         }
 

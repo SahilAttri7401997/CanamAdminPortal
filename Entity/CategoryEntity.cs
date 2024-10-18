@@ -13,6 +13,7 @@ namespace CanamDistributors.Entity
         public DateTime DtUpdated { get; set; }
         public string ProoductConditions { get; set; }
         public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
 
     }
 }

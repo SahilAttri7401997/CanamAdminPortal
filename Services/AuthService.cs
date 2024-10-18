@@ -94,7 +94,17 @@ namespace CanamDistributors.Services
         }
         public async Task<List<CategoryEntity>> GetCollections()
         {
-            List<CategoryEntity> category = await _context.Category.AsNoTracking().ToListAsync();
+            List<CategoryEntity> category = await _context.Category.Where(x => x.IsDeleted == false).AsNoTracking().ToListAsync();
+            if (category != null && category.Count > 0)
+            {
+                return category;
+            }
+            return null;
+        }
+
+        public async Task<List<CategoryEntity>> GetDeletedCollections()
+        {
+            List<CategoryEntity> category = await _context.Category.Where(x => x.IsDeleted == true).AsNoTracking().ToListAsync();
             if (category != null && category.Count > 0)
             {
                 return category;
@@ -240,7 +250,7 @@ namespace CanamDistributors.Services
                     productImages.Images = string.Empty;
 
                     // Update product images
-                    if(active == "true")
+                    if (active == "true")
                     {
                         productImages.DiscountPrice = discountPrice;
                     }
@@ -274,19 +284,74 @@ namespace CanamDistributors.Services
             return null; // Return null if product not found
         }
 
-
-
-        public async Task<List<Customer>> GetCustomers()
+        public async Task<List<CustomerResponseModel>> GetCustomers()
         {
-            List<Customer> customers = await _context.Customer.AsNoTracking().ToListAsync();
-            if (customers != null && customers.Count > 0)
-            {
-                return customers;
-            }
-            return null;
+            var customerData = await (
+                from customer in _context.Customer
+                join supplier in _context.Suppliers
+                on customer.Id equals supplier.CustomerId into customerSupplierGroup
+                from supplier in customerSupplierGroup.DefaultIfEmpty()  // Left join with DefaultIfEmpty
+                select new CustomerResponseModel
+                {
+                    LegalName = customer.LegalName,
+                    TradeName = customer.TradeName,
+                    BusinessType = customer.BusinessType,
+                    PhoneNumber = customer.PhoneNumber,
+                    TaxID = customer.TaxID,
+                    PSTNumber = customer.PSTNumber,
+                    BillingAddress = customer.BillingAddress,
+                    BillingAddress2 = customer.BillingAddress2,
+                    BillingCity = customer.BillingCity,
+                    BillingState = customer.BillingState,
+                    BillingCountry = customer.BillingCountry,
+                    BillingZip = customer.BillingZip,
+                    ShippingAddress = customer.ShippingAddress,
+                    ShippingAddress2 = customer.ShippingAddress2,
+                    ShippingCity = customer.ShippingCity,
+                    ShippingState = customer.ShippingState,
+                    ShippingCountry = customer.ShippingCountry,
+                    ShippingZipcode = customer.ShippingZipcode,
+                    BankName = customer.BankName,
+                    BankContactName = customer.BankContactName,
+                    BankAddress = customer.BankAddress,
+                    BankPhoneNumber = customer.BankPhoneNumber,
+                    TransitNo = customer.TransitNo,
+                    InstNo = customer.InstNo,
+                    AccountNo = customer.AccountNo,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Title = customer.Title,
+                    MobilePhone = customer.MobilePhone,
+                    EmailAddress = customer.EmailAddress,
+                    Fax = customer.Fax,
+                    MobileNumber = customer.MobileNumber,
+                    Password = customer.Password,
+                    CCFirstName = customer.CCFirstName,
+                    CCLastName = customer.CCLastName,
+                    CCNumber = customer.CCNumber,
+                    CCExpiryMonth = customer.CCExpiryMonth,
+                    CCExpiryYear = customer.CCExpiryYear,
+                    CVV = customer.CVV,
+                    BusinessStatus = customer.BusinessStatus,
+                    PSTCertificate = customer.PSTCertificate,
+                    // Supplier details from the Suppliers table, default to null if no match
+                    SupplierName1 = supplier.SupplierName1,
+                    SupplierCity1 = supplier.SupplierCity1,
+                    SupplierPhone1 = supplier.SupplierPhone1,
+                    SupplierName2 = supplier.SupplierName2,
+                    SupplierCity2 = supplier.SupplierCity2,
+                    SupplierPhone2 = supplier.SupplierPhone2,
+                    SupplierName3 = supplier.SupplierName3,
+                    SupplierCity3 = supplier.SupplierCity3,
+                    SupplierPhone3 = supplier.SupplierPhone3
+                }
+            ).AsNoTracking().ToListAsync();
+
+            return customerData ?? new List<CustomerResponseModel>();
         }
 
-        public string GenerateCustomerCsv(IEnumerable<Customer> customers)
+
+        public string GenerateCustomerCsv(IEnumerable<CustomerResponseModel> customers)
         {
             var csv = new StringBuilder();
             csv.AppendLine("First Name,Last Name,Title,Mobile Phone,Email, Trade Name,Legal Name, Business Type,Tax Id,PST Number");
@@ -308,8 +373,10 @@ namespace CanamDistributors.Services
                 return false;
             }
 
+            category.IsDeleted = true;
+            category.DtUpdated = DateTime.Now;
             // Remove the category from the DbSet
-            _context.Category.Remove(category);
+            _context.Category.Update(category);
 
             // Save changes to the database
             await _context.SaveChangesAsync();
@@ -338,6 +405,28 @@ namespace CanamDistributors.Services
 
             // Return true to indicate successful deletion
             return true;
+        }
+
+        public async Task<CategoryEntity> ResetCollection(int categoryId)
+        {
+            // Find the category by ID
+            var category = await _context.Category.FindAsync(categoryId);
+
+            if (category == null)
+            {
+                // If the category doesn't exist, return false
+                return null;
+            }
+            category.IsDeleted = false;
+            category.DtUpdated = DateTime.Now;
+            // Remove the category from the DbSet
+            _context.Category.Update(category);
+
+            // Save changes to the database
+            await _context.SaveChangesAsync();
+
+            // Return true to indicate successful deletion
+            return category;
         }
     }
 }

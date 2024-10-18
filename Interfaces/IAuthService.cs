@@ -11,9 +11,11 @@ namespace CanamDistributors.Interfaces
         string GenerateCsv(IEnumerable<ProductResponseModel> products);
         Task<CategoryEntity> SaveCollection(CollectionRequestModel requestModel);
         Task<Products> UpdateHotDealProduct(string productId, decimal discountPrice, string active, string IsProductEnabled, List<IFormFile> CategoryImages,string description, List<string> currentImages);
-        Task<List<Customer>> GetCustomers();
-        string GenerateCustomerCsv(IEnumerable<Customer> customers);
+        Task<List<CustomerResponseModel>> GetCustomers();
+        string GenerateCustomerCsv(IEnumerable<CustomerResponseModel> customers);
         Task<bool> DeleteCollection(int categoryId);
         Task<bool> UpdateCollectionStatus(bool IsCollectionStatus, int categoryId);
+        Task<List<CategoryEntity>> GetDeletedCollections();
+        Task<CategoryEntity> ResetCollection(int categoryId);
     }
 }

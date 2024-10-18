@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\Images\\logo.webp"
     },
     {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\FloraEditor.css",
+      "PackagePath": "staticwebassets\\css\\FloraEditor.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\Select2.css",
+      "PackagePath": "staticwebassets\\css\\Select2.css"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\Toaster.css",
+      "PackagePath": "staticwebassets\\css\\Toaster.css"
+    },
+    {
       "Id": "D:\\CanamAdminPortal\\wwwroot\\css\\bootstrap-social.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-social.css"
     },
@@ -87,6 +99,22 @@
     {
       "Id": "D:\\CanamAdminPortal\\wwwroot\\fonts\\glyphicons-halflings-regular.woff2",
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\FloraEditor.js",
+      "PackagePath": "staticwebassets\\js\\FloraEditor.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\JqueryValidate.js",
+      "PackagePath": "staticwebassets\\js\\JqueryValidate.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\Select2.js",
+      "PackagePath": "staticwebassets\\js\\Select2.js"
+    },
+    {
+      "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\Toaster.js",
+      "PackagePath": "staticwebassets\\js\\Toaster.js"
     },
     {
       "Id": "D:\\CanamAdminPortal\\wwwroot\\js\\bootstrap.min.js",

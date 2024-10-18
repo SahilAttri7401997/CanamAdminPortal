@@ -143,7 +143,6 @@
                 height: auto;
                 margin: 5px;
             }
-
     </style>
 
 
@@ -210,6 +209,9 @@
                                 <a asp-controller="Account" asp-action="Collections">Collections</a>
                             </li>
                             <li>
+                                <a asp-controller="Account" asp-action="DeletedCollections">Deleted Collections</a>
+                            </li>
+                            <li>
                                 <a asp-controller="Account" asp-action="HotDeals">Hot-Deals</a>
                             </li>
                             <li>
@@ -268,11 +270,12 @@
                                 <input type="file" id="fileElem" name="CategoryImages" accept="image/*" multiple />
                                 <span>Select files</span>
                             </div>
+
                             <div id="gallery" style="margin-top: 10px; display: flex; flex-wrap: wrap;"></div>
                         </div>
                         <div class="form-group">
                             <label for="ProductConditions">Description</label>
-                            <textarea id="Description" class="form-control"></textarea>
+                            <textarea id="ProoductConditions" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="Category">Hot Deal Price</label>
@@ -311,7 +314,6 @@
         });
 
     </script>
-
     <script>
         var IsActive = '@IsActive'; // Use Razor to set the value
         var IsProductEnabled = '@IsProductEnabled'; // Use Razor to set the value
@@ -322,7 +324,13 @@
         function handleCheckboxChange(checkbox, id, discountPrice, imageUrls, description, IsProductActive) {
             $('#ProductId').val(id);
             $('#DiscountPrice').val(discountPrice);
-            $('#Description').val(description);
+            // $('#ProoductConditions').val(description);
+            var editorInstance = new FroalaEditor('#ProoductConditions');
+
+            // Set content after initialization using the API
+            editorInstance.html.set(description);
+            $('#ProoductConditions').froalaEditor('html.set', description);
+
 
             // Clear previous images from the gallery
             const gallery = document.getElementById('gallery');
@@ -343,7 +351,7 @@
             });
 
             // Handle checkbox state
-            if (checkbox.checked && IsProductActive == "true") {
+            if (checkbox.checked) {
                 IsProductEnabled = "true";
                 $('#myModal').modal('show');
                 $('#myModal').data('relatedCheckbox', checkbox);
@@ -369,13 +377,28 @@
             }
         }
 
+        // Create image container with the view and remove buttons
         function createImageContainer(imageUrl) {
             const container = document.createElement('div');
             container.classList.add('image-container');
+            container.style.position = 'relative'; // Ensure button is positioned relative to the image
 
             const img = document.createElement('img');
-            img.src = imageUrl; // Use the URL directly
+            img.src = imageUrl;
+            img.style.width = '100px'; // Initial small size for gallery
+            img.style.height = '100px';
+            img.style.display = 'block'; // Image is displayed as block
 
+            // Create the "View" button
+            const viewButton = document.createElement('button');
+            viewButton.textContent = 'View';
+            viewButton.classList.add('btn', 'btn-primary', 'btn-sm');
+            viewButton.style.marginRight = '5px'; // Adding some space between buttons
+            viewButton.onclick = function () {
+                openImageInNewTab(imageUrl); // Open image in a new tab
+            };
+
+            // Create the "Remove" button
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
             removeButton.classList.add('remove-image', 'btn', 'btn-danger', 'btn-sm');
@@ -384,11 +407,22 @@
                 container.remove(); // Remove image container on click
             };
 
+            // Append the image, view button, and remove button to the container
             container.appendChild(img);
-            container.appendChild(removeButton);
+            container.appendChild(viewButton); // Add the View button
+            container.appendChild(removeButton); // Add the Remove button
+
             return container;
         }
 
+
+        // Function to open the image in a new tab
+        function openImageInNewTab(imageUrl) {
+            const newWindow = window.open();
+            newWindow.document.write('<img src="' + imageUrl + '" alt="Image" style="width: 100%; height: auto;">');
+        }
+
+        // Function to handle image removal
         function handleImageRemoval(imageUrl) {
             removedImages.push(imageUrl); // Track the removed image
             const index = currentImages.indexOf(imageUrl);
@@ -397,10 +431,11 @@
             }
         }
 
+        // Existing UpdateProductHotDeals function
         function UpdateProductHotDeals() {
             var productIdValue = $('#ProductId').val();
             var discountPriceValue = $('#DiscountPrice').val();
-            var description = $('#Description').val();
+            var description = $('#ProoductConditions').val();
 
             if (IsProductEnabled == "false" && discountPriceValue == 0) {
                 showToast('Discount Price is required!', 'error');
@@ -491,6 +526,14 @@
             const img = document.createElement('img');
             img.src = imageSrc;
 
+            const viewButton = document.createElement('button');
+            viewButton.textContent = 'View';
+            viewButton.classList.add('btn', 'btn-primary', 'btn-sm');
+            viewButton.style.marginRight = '5px'; // Adding some space between buttons
+            viewButton.onclick = function () {
+                openImageInNewTab(imageSrc); // Open image in a new tab
+            };
+
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
             removeButton.classList.add('remove-image', 'btn', 'btn-danger', 'btn-sm');
@@ -504,6 +547,7 @@
             };
 
             container.appendChild(img);
+            container.appendChild(viewButton); // Add the View button
             container.appendChild(removeButton);
             return container;
         }
@@ -607,6 +651,7 @@
         }
 
     </script>
+
 
 </body>
 

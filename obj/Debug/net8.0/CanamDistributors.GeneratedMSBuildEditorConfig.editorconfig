@@ -46,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CanamAdminPortal/Views/Account/DeletedCollections.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZWxldGVkQ29sbGVjdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CanamAdminPortal/Views/Account/HotDeals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxIb3REZWFscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
